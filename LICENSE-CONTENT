@@ -1,0 +1,17 @@
+Portfolio Content License (All Rights Reserved)
+
+Copyright (c) 2026 Caleb Stammen. All rights reserved.
+
+This repository contains both source code and portfolio content (including, but
+not limited to: text, images, design assets, and resume materials). The source
+code is licensed under the MIT License (see LICENSE).
+
+All non-code content is not licensed for reuse, modification, redistribution,
+or commercial use without prior written permission from the copyright holder.
+
+For clarity, the following are treated as "Content" for this repository:
+- Files under `assets/` (images, icons, map/topo data, and other media)
+- Resume materials under `resume/` (including any PDFs)
+- Written copy and portfolio materials embedded in HTML
+
+If you would like to reuse any content, contact Caleb Stammen, the copyright holder.
