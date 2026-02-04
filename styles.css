@@ -10,6 +10,7 @@
   --forest: #1f5e4d;
   --forest-dark: #0f3a30;
   --clay: #c96a4a;
+  --moss: #3e8f5b;
   --alpine: #2f7ea8;
 
   --border: rgba(31, 94, 77, 0.2);
@@ -799,12 +800,12 @@ a:hover {
 }
 
 .map-region.is-visited {
-  fill: var(--clay);
+  fill: var(--moss);
   stroke: rgba(15, 58, 48, 0.5);
 }
 
 .map-region.is-visited:hover {
-  fill: #d97757;
+  fill: #2f7a4c;
 }
 
 .map-controls {
@@ -859,9 +860,9 @@ a:hover {
 }
 
 .legend-chip.is-visited {
-  background: rgba(201, 106, 74, 0.18);
+  background: rgba(62, 143, 91, 0.18);
   color: var(--forest-dark);
-  border-color: rgba(201, 106, 74, 0.4);
+  border-color: rgba(62, 143, 91, 0.4);
 }
 
 .map-note {
