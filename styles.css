@@ -144,12 +144,16 @@ a:hover {
   box-shadow: 0 12px 28px rgba(23, 20, 16, 0.08);
 }
 
+.site-nav .masthead {
+  max-width: none;
+}
+
 .masthead {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 0.85rem 0;
+  padding: 0.85rem var(--gutter);
 }
 
 .brand {
@@ -162,7 +166,7 @@ a:hover {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 1.2rem;
   justify-content: flex-end;
@@ -170,9 +174,13 @@ a:hover {
 
 .nav-toggle {
   display: none;
+  position: relative;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.45rem 0.95rem;
+  padding: 0.65rem;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(31, 94, 77, 0.35);
   background: rgba(255, 255, 255, 0.7);
@@ -182,6 +190,19 @@ a:hover {
   letter-spacing: 0.12em;
   font-size: 0.65rem;
   cursor: pointer;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .nav-toggle:hover {
@@ -233,7 +254,7 @@ a:hover {
 
 .nav-links {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 1rem;
   font-weight: 600;
   color: var(--slate);
@@ -242,6 +263,7 @@ a:hover {
 .nav-links a {
   position: relative;
   padding-bottom: 0.25rem;
+  white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -1283,26 +1305,7 @@ body.resume {
   font-size: 0.75rem;
 }
 
-@media (max-width: 980px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-meta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .section-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-grid,
-  .impact-grid,
-  .approach-grid,
-  .case-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+@media (max-width: 1200px) {
   .masthead {
     flex-wrap: wrap;
     gap: 1rem;
@@ -1337,11 +1340,33 @@ body.resume {
 
   .nav-links a {
     padding: 0.35rem 0;
+    white-space: normal;
   }
 
   .nav-actions {
     width: 100%;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .impact-grid,
+  .approach-grid,
+  .case-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

@@ -68,7 +68,7 @@ if (navToggle && primaryNav) {
 
   for (const link of primaryNav.querySelectorAll("a")) {
     link.addEventListener("click", () => {
-      if (window.matchMedia("(max-width: 980px)").matches) closeNav();
+      if (window.matchMedia("(max-width: 1200px)").matches) closeNav();
     });
   }
 
@@ -77,7 +77,7 @@ if (navToggle && primaryNav) {
   });
 
   window.addEventListener("resize", () => {
-    if (!window.matchMedia("(max-width: 980px)").matches) closeNav();
+    if (!window.matchMedia("(max-width: 1200px)").matches) closeNav();
   });
 }
 
@@ -613,8 +613,8 @@ const travelStories = {
     {
       state: "MA",
       title: "Massachusetts",
-      // subtitle: "Boston, Cambridge for my Masters graduation.",
-      // excerpt: "A week of city exploration, scenic views, and local cuisine.",
+      subtitle: "A few loved ones joined me in Boston for my Masters graduation.",
+      excerpt: "Great city with so much history. We toured around the Freedom Trail, the Museum of Science, enjoyed some amazing seafood, and visited MIT and Harvard campuses.",
       // images: ["assets/travel/massachusetts-1.jpg", "assets/travel/massachusetts-2.jpg"],
     },
     {
