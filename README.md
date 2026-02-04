@@ -37,3 +37,8 @@ Then visit `http://localhost:5173`.
   - Add images under `assets/travel/` and reference them in the stories.
 - Photo swaps: replace files in `assets/` and update corresponding `img` tags in `index.html`.
 - Resume PDF download: place the file at `resume/Caleb Stammen Resume.pdf` and keep the download link in `resume/index.html`.
+
+## License
+This project uses a split license:
+- **Code** (HTML/CSS/JS): MIT License (see `LICENSE`).
+- **Content** (site copy, images, design assets, resume materials): All Rights Reserved (see `LICENSE-CONTENT`).
