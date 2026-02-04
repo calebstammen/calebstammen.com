@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://calebstammen.com/sitemap.xml
+
