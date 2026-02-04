@@ -1,59 +1,39 @@
 # calebstammen.com (Portfolio)
 
-Static portfolio site for `calebstammen.com`, designed with a \"Topo + Alpine\" visual theme.
+Static portfolio + resume site for `calebstammen.com`, built as a single-page experience with a travel map and story overlays.
 
-## Structure
-- `index.html` - homepage
-- `resume/index.html` - HTML resume (print-friendly)
-- `assets/` - SVG assets (topo overlay + favicon)
+**Highlights**
+- Single-page layout with clear sections (About, Focus, Approach, Work, Experience, Education, Travel, Contact).
+- Sticky nav with active-section highlighting and skip-link accessibility.
+- Scroll-reveal animations with `prefers-reduced-motion` support.
+- Email copy buttons with toast feedback.
+- Interactive travel maps (US + World) with zoom, expand overlay, and story modal for visited regions.
+- Dedicated resume page with print-friendly layout and optional PDF download.
+- No build step: plain HTML, CSS, and JS.
 
-## Local Preview
-Option 1: open `index.html` directly in a browser.
+**Structure**
+- `index.html` - main site
+- `resume/index.html` - resume page
+- `styles.css` - global styles and resume styling
+- `script.js` - UI interactions, map rendering, travel stories
+- `assets/` - images, topo overlays, favicon
+- `assets/maps/` - local TopoJSON for US + world maps
 
-Option 2: run a local web server from the repo root:
+**Local Preview**
+Option 1: open `index.html` directly in a browser (map data may fail to load due to file protocol restrictions).
+
+Option 2 (recommended): run a local server from the repo root:
 ```bash
 python3 -m http.server 5173
 ```
 Then visit `http://localhost:5173`.
 
-## Deployment (GitHub Pages)
-1. Push `main` to GitHub.
-2. In GitHub: Settings -> Pages
-3. Build and deployment:
-   - Source: "Deploy from a branch"
-   - Branch: `main` / `/(root)`
-4. Custom domain: `calebstammen.com`
-5. After DNS is set and propagates: enable "Enforce HTTPS".
-
-This repo includes:
-- `CNAME` (custom domain)
-- `.nojekyll` (disable Jekyll processing)
-- `404.html` for SPA-like behavior on GitHub Pages
-
-## DNS (DreamHost)
-Create these records in DreamHost DNS for `calebstammen.com`:
-
-### Apex (`calebstammen.com`)
-`A` records:
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
-
-`AAAA` records:
-- `2606:50c0:8000::153`
-- `2606:50c0:8001::153`
-- `2606:50c0:8002::153`
-- `2606:50c0:8003::153`
-
-### `www`
-`CNAME` record:
-- `www` -> `calebstammen.github.io`
-
-### Redirect
-Redirect `www.calebstammen.com` -> `https://calebstammen.com`
-
-## Resume PDF (Future)
-The resume is HTML-only for now. When you have an official PDF:
-1. Add it to `assets/caleb-stammen-resume.pdf`
-2. Enable the "Download PDF" button on `resume/index.html`
+**Content Updates**
+- Site copy and sections: edit `index.html`.
+- Resume content: edit `resume/index.html`.
+- Travel map data:
+  - Update `visitedStatesInput` and `visitedCountriesInput` in `script.js`.
+  - Add/adjust stories in `travelStories` in `script.js`.
+  - Add images under `assets/travel/` and reference them in the stories.
+- Photo swaps: replace files in `assets/` and update corresponding `img` tags in `index.html`.
+- Resume PDF download: place the file at `resume/Caleb Stammen Resume.pdf` and keep the download link in `resume/index.html`.
