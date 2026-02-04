@@ -49,6 +49,65 @@ for (const el of document.querySelectorAll("[data-copy-email]")) {
   });
 }
 
+// Mobile nav toggle
+const navToggle = document.querySelector(".nav-toggle");
+const primaryNav = document.getElementById("primary-nav");
+
+if (navToggle && primaryNav) {
+  const closeNav = () => {
+    primaryNav.classList.remove("is-open");
+    navToggle.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = primaryNav.classList.toggle("is-open");
+    navToggle.classList.toggle("is-open", isOpen);
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  for (const link of primaryNav.querySelectorAll("a")) {
+    link.addEventListener("click", () => {
+      if (window.matchMedia("(max-width: 980px)").matches) closeNav();
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeNav();
+  });
+
+  window.addEventListener("resize", () => {
+    if (!window.matchMedia("(max-width: 980px)").matches) closeNav();
+  });
+}
+
+function handlePhotoError(img) {
+  const fallback = img.dataset.fallback;
+  if (fallback && !img.dataset.fallbackTried) {
+    img.dataset.fallbackTried = "true";
+    img.removeAttribute("srcset");
+    img.removeAttribute("sizes");
+    img.src = fallback;
+    return;
+  }
+
+  const card = img.closest(".photo-card");
+  if (card) card.classList.add("is-missing");
+  img.remove();
+}
+
+function setupPhotoFallbacks() {
+  const images = document.querySelectorAll(".photo-card img");
+  if (!images.length) return;
+
+  for (const img of images) {
+    img.addEventListener("error", () => handlePhotoError(img));
+    if (img.complete && img.naturalWidth === 0) handlePhotoError(img);
+  }
+}
+
+setupPhotoFallbacks();
+
 // Scroll reveal
 const revealEls = Array.from(document.querySelectorAll(".reveal"));
 const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
@@ -499,7 +558,7 @@ const travelStories = {
       state: "CA",
       title: "California",
       subtitle: "Silicon Valley, San Diego, Anaheim, and more.",
-      excerpt: "Tech conferences, my bachelors degree graduation, Disneyland, beaches, and I've only scratched the surface of this huge state.",
+      excerpt: "Tech conferences, my bachelor's degree graduation, Disneyland, beaches, and I've only scratched the surface of this huge state.",
       // images: ["assets/travel/california-1.jpg", "assets/travel/california-2.jpg"],
     },
     {
@@ -534,7 +593,7 @@ const travelStories = {
       state: "IN",
       title: "Indiana",
       subtitle: "Indianapolis, Fort Wayne, and much more.",
-      excerpt: "I grew up on the Ohio-Indiana border and have visited Indiana many times over the years. One of my favorite places is Oubache State Park and the surrounding areas.",
+      excerpt: "I grew up on the Ohio-Indiana border and have visited Indiana many times over the years. One of my favorite places is Ouabache State Park and the surrounding areas.",
       // images: ["assets/travel/indiana-1.jpg", "assets/travel/indiana-2.jpg"],
     },
     {
@@ -569,7 +628,7 @@ const travelStories = {
       state: "MI",
       title: "X-ichigan",
       subtitle: "If you're from Ohio, you spell it X-ichigan!",
-      excerpt: "From the Great Lakes to Detroit to Ann Arbor, I've visited Michigan multiple times for sports games, hiking in the beautiful upper peninsula, road trips, casinos, and more.",
+      excerpt: "From the Great Lakes to Detroit to Ann Arbor, I've visited Michigan multiple times for sporting events, hikes in the beautiful Upper Peninsula, road trips, casinos, and more.",
       // images: ["assets/travel/michigan-1.jpg", "assets/travel/michigan-2.jpg"],
     },
     {
@@ -589,9 +648,9 @@ const travelStories = {
     {
       state: "NH",
       title: "New Hampshire",
-      subtitle: "An epic weekend roadtrip with a good friend to the White Mountains",
-      excerpt: "14 hours of driving, one way, late November, terrible weather, but so worth it. We left home on a Friday after work and drove straight through the night to get there early Saturday morning. We hiked Franconia Ridge Loop, one of the most beautiful hikes I've ever done. We camped overnight and hoped to summit Mount Washington the next day, but a snowstorm rolled in while we slept and we decided to head home. We'll be back!",
-      // images: ["assets/travel/newhampshire-1.jpg", "assets/travel/newhampshire-2.jpg"],
+      subtitle: "An epic weekend road trip with a good friend to the White Mountains.",
+      excerpt: "14 hours of driving, one way, late November, terrible weather, but so worth it. We left home on a Friday after work and drove straight through the night to get there early Saturday morning. We hiked the Franconia Ridge Loop, one of the most beautiful hikes I've ever done. We camped overnight and hoped to summit Mount Washington the next day, but a snowstorm rolled in while we slept, and we decided to head home. We'll be back!",
+      images: ["assets/travel/NH1.jpg", "assets/travel/NH2.jpg"],
     },
     {
       state: "NV",
@@ -603,7 +662,7 @@ const travelStories = {
     {
       state: "NY",
       title: "New York",
-      subtitle: "Part of the epic NH roadtrip. Looking forward to spending more time in the Adirondacks!",
+      subtitle: "Part of the epic NH road trip. Looking forward to spending more time in the Adirondacks!",
       // excerpt: "A week of city exploration, scenic views, and local cuisine.",
       // images: ["assets/travel/newyork-1.jpg", "assets/travel/newyork-2.jpg"],
     },
@@ -624,15 +683,15 @@ const travelStories = {
     {
       state: "SC",
       title: "South Carolina",
-      subtitle: "Visited on many occaionsions with family. Charleston is a favorite spot (I have a sibling there!).",
+      subtitle: "Visited on many occasions with family. Charleston is a favorite spot (I have a sibling there! Hi Clair.)",
       // excerpt: "A week of historic sites, coastal exploration, and local cuisine.",
       // images: ["assets/travel/southcarolina-1.jpg", "assets/travel/southcarolina-2.jpg"],
     },
     {
       state: "TN",
       title: "Tennessee",
-      subtitle: "I've been fortunate to have visited Tennesse many times.",
-      excerpt: "From Nashville to Norris Lake to Gatlinburg and the Smoky Mountains, I've enjoyed much of what TN has to offer in terms of beautiful nature and southern hospitality.",
+      subtitle: "I've been fortunate to have visited Tennessee many times.",
+      excerpt: "From Nashville to Norris Lake to Gatlinburg and the Smoky Mountains, I've enjoyed much of what TN has to offer: beautiful nature and Southern hospitality.",
       // images: ["assets/travel/tennessee-1.jpg", "assets/travel/tennessee-2.jpg"],
     },
     {
@@ -652,15 +711,15 @@ const travelStories = {
     {
       state: "WA",
       title: "Washington",
-      subtitle: "Seattle, Tacoma, and the surrounding areas on a few separate trips.",
-      excerpt: "Visited with family and friends while exploring the Pacific Northwest. Toured the Space Needle and Pike Place Market, skiied at Crystal Mountain, and hiked in the mountains",
+      subtitle: "Seattle, Tacoma, and the surrounding areas on a few separate occasions.",
+      excerpt: "Visited with family and friends while exploring the Pacific Northwest. Toured the Space Needle and Pike Place Market, skied at Crystal Mountain, and hiked in the mountains.",
       // images: ["assets/travel/washington-1.jpg", "assets/travel/washington-2.jpg"],
     },
     {
       state: "WV",
       title: "West Virginia",
-      subtitle: "A roadtrip with a friend to the Seneca Rocks area for hiking and climbing.",
-      excerpt: "We hiked multiple trail and climbed on the rocks. This was my first overnight hiking trip and it was a blast!",
+      subtitle: "A road trip with a friend to the Seneca Rocks area for hiking and climbing.",
+      excerpt: "We hiked multiple trails and climbed on the rocks. This was my first overnight hiking trip, and it was a blast!",
       // images: ["assets/travel/westvirginia-1.jpg", "assets/travel/westvirginia-2.jpg"],
     },
   ],
@@ -675,20 +734,21 @@ const travelStories = {
     {
       country: "India",
       title: "Wedding in Thiruvananthapuram, India - January 2025",
-      subtitle: "A quick layover in Dehli on our way to Trivandrum airport for my cousin's wedding.",
+      subtitle: "A quick layover in Delhi on our way to Trivandrum Airport for my cousin's wedding.",
       excerpt: "We stayed at The Leela Kovalam and I had a blast at my first Indian wedding. The food was incredible, the ceremonies were beautiful, and the people were so warm and welcoming.",
       // images: ["assets/travel/iceland-1.jpg"],
     },
     {
       country: "United Kingdom",
       title: "London, United Kingdom - January 2025",
-      subtitle: "Visited London with my brother Seth and his wife Mandy",
-      excerpt: "Toured around the city, seeing historical landmarks and museums. Big Ben, Buckingham Palace, Tower of London, British Museum, Beautiful cathedrals, and more.",
+      subtitle: "Visited London with my brother Seth and his wife Mandy.",
+      excerpt: "We toured around the city, seeing historical landmarks and museums: Big Ben, Buckingham Palace, the Tower of London, the British Museum, beautiful cathedrals, and more.",
       // images: ["assets/travel/iceland-1.jpg"],
     },
     {
       country: "United States of America",
-      title: "Home",
+      title: "The US of A",
+      subtitle: "This is home for me.",
     },
   ],
 };
