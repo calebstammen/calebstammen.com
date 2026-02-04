@@ -1,6 +1,6 @@
 # calebstammen.com (Portfolio)
 
-Static portfolio + resume site for `calebstammen.com`, built as a single-page experience with a travel map and story overlays.
+Static portfolio + resume site for `calebstammen.com`, built as a single-page with interactive travel maps and story overlays.
 
 **Highlights**
 - Single-page layout with clear sections (About, Focus, Approach, Work, Experience, Education, Travel, Contact).
