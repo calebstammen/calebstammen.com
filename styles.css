@@ -684,6 +684,310 @@ a:hover {
   border: 1px solid rgba(201, 106, 74, 0.3);
 }
 
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.map-card {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 1.4rem;
+  border: 1px solid rgba(31, 94, 77, 0.18);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.map-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.map-head-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.map-head h3 {
+  font-family: var(--font-head);
+  margin: 0.2rem 0 0;
+}
+
+.map-stat {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--slate);
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.map-stat span:first-child {
+  font-size: 1.1rem;
+  color: var(--forest-dark);
+  letter-spacing: 0.08em;
+}
+
+.map-divider {
+  color: rgba(31, 94, 77, 0.4);
+}
+
+.map-frame {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(31, 94, 77, 0.2);
+  padding: 0.85rem;
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background-image: url("assets/topo.svg");
+  background-repeat: no-repeat;
+  background-size: 160%;
+  background-position: center;
+}
+
+.map-frame.is-zoomable,
+.map-overlay-frame.is-zoomable {
+  cursor: grab;
+}
+
+.map-frame.is-zoomable:active,
+.map-overlay-frame.is-zoomable:active {
+  cursor: grabbing;
+}
+
+.map-frame svg,
+.map-overlay-frame svg {
+  width: 100%;
+  height: auto;
+  touch-action: none;
+}
+
+.map-fallback,
+.map-loading {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  color: var(--slate);
+  margin: 0;
+  text-align: center;
+}
+
+.map-region {
+  fill: rgba(31, 94, 77, 0.18);
+  stroke: rgba(15, 58, 48, 0.35);
+  stroke-width: 0.6;
+  transition: fill 180ms ease, stroke 180ms ease;
+}
+
+.map-region:hover {
+  fill: rgba(47, 126, 168, 0.7);
+  stroke: rgba(15, 58, 48, 0.55);
+}
+
+.map-region.is-visited {
+  fill: var(--clay);
+  stroke: rgba(15, 58, 48, 0.5);
+}
+
+.map-region.is-visited:hover {
+  fill: #d97757;
+}
+
+.map-controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.map-expand,
+.map-reset,
+.map-close {
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(31, 94, 77, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--forest-dark);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.64rem;
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+}
+
+.map-expand:hover,
+.map-reset:hover,
+.map-close:hover {
+  border-color: rgba(31, 94, 77, 0.6);
+  color: var(--forest-dark);
+}
+
+.map-expand:focus-visible,
+.map-reset:focus-visible,
+.map-close:focus-visible {
+  outline-color: rgba(31, 94, 77, 0.4);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.legend-chip {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.65rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(31, 94, 77, 0.25);
+  color: var(--slate);
+  background: rgba(31, 94, 77, 0.08);
+}
+
+.legend-chip.is-visited {
+  background: rgba(201, 106, 74, 0.18);
+  color: var(--forest-dark);
+  border-color: rgba(201, 106, 74, 0.4);
+}
+
+.map-note {
+  font-size: 0.92rem;
+  color: var(--slate);
+  margin-top: 1.1rem;
+}
+
+.map-overlay,
+.travel-modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  z-index: 1000;
+}
+
+.map-overlay.is-open,
+.travel-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.map-overlay-backdrop,
+.travel-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.map-overlay-card,
+.travel-modal-card {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  border: 1px solid rgba(31, 94, 77, 0.2);
+  box-shadow: var(--shadow);
+  width: min(1100px, 92vw);
+  max-height: min(88vh, 920px);
+  overflow: auto;
+}
+
+.map-overlay-head,
+.travel-modal-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.map-overlay-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.map-overlay-frame {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(31, 94, 77, 0.2);
+  padding: 1rem;
+  min-height: clamp(320px, 50vh, 520px);
+  background-image: url("assets/topo.svg");
+  background-repeat: no-repeat;
+  background-size: 160%;
+  background-position: center;
+}
+
+.map-overlay-hint {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.62rem;
+  color: var(--slate);
+  margin-top: 0.9rem;
+}
+
+.travel-modal-subtitle {
+  color: var(--slate);
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+}
+
+.travel-modal-excerpt {
+  color: var(--slate);
+  line-height: 1.7;
+  margin: 1rem 0 1.2rem;
+}
+
+.travel-modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.8rem;
+}
+
+.travel-modal-gallery.is-empty {
+  display: none;
+}
+
+.travel-modal-gallery figure {
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(31, 94, 77, 0.18);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.travel-modal-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -908,7 +1212,8 @@ body.resume {
   .impact-grid,
   .approach-grid,
   .case-grid,
-  .photo-grid {
+  .photo-grid,
+  .travel-grid {
     grid-template-columns: 1fr;
   }
 
@@ -943,6 +1248,21 @@ body.resume {
 
   .photo-card img {
     height: clamp(220px, 60vw, 320px);
+  }
+
+  .map-frame {
+    min-height: 240px;
+    padding: 0.7rem;
+    background-size: 220%;
+  }
+
+  .map-overlay-card,
+  .travel-modal-card {
+    padding: 1.2rem;
+  }
+
+  .map-overlay-frame {
+    min-height: clamp(260px, 45vh, 420px);
   }
 }
 

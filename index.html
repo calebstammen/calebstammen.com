@@ -44,6 +44,8 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 
@@ -66,6 +68,7 @@
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
+          <a href="#travel">Travel</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="nav-actions">
@@ -255,29 +258,29 @@
               <ul class="case-list">
                 <li>Outcome: significant time saved each month.</li>
                 <li>Focus: guardrails, rollout strategy, adoption.</li>
+                <li>User centric design - built for them.</li>
               </ul>
             </article>
             <article class="case-card">
               <div class="case-head">
-                <h3>Facility Assessment App</h3>
+                <h3>Placeholder</h3>
                 <span class="case-tag">Mobile Workflow</span>
               </div>
-              <p>Designed a fast field workflow for audits, photos, and scoring with real-time sync to reporting.</p>
+              <p>Placeholder</p>
               <ul class="case-list">
-                <li>Outcome: on-site time reduced and reporting sped up.</li>
-                <li>Focus: UX clarity, offline tolerance, data integrity.</li>
+                <li>Placeholder</li>
+                <li>Placeholder</li>
               </ul>
             </article>
             <article class="case-card">
               <div class="case-head">
-                <h3>AI-Powered Intranet + LMS</h3>
+                <h3>Placeholder</h3>
                 <span class="case-tag">Enablement</span>
               </div>
-              <p>Co-led the rollout of a searchable knowledge hub and learning system to speed onboarding and reduce
-                rework.</p>
+              <p>Placeholder</p>
               <ul class="case-list">
-                <li>Outcome: faster self-serve support and training.</li>
-                <li>Focus: change management, governance, security.</li>
+                <li>Placeholder</li>
+                <li>Placeholder</li>
               </ul>
             </article>
           </div>
@@ -307,14 +310,6 @@
                   <span>Hybrid</span>
                 </div>
               </div>
-              <p class="timeline-context">Mid-sized architecture firm</p>
-              <ul class="list">
-                <li>Own AI and full-stack initiatives end to end, from system design through adoption.</li>
-                <li>Advise CEO/COO on AI strategy and readiness; mentor employees on effective AI tooling.</li>
-                <li>Built an AEC-focused meeting minute platform that reduces manual writing and follow-up.</li>
-                <li>Built a facility assessment app that streamlines on-site work and data entry.</li>
-                <li>Co-led an AI-powered intranet and LMS rollout with cross-functional stakeholders.</li>
-              </ul>
             </article>
 
             <article class="timeline-item">
@@ -328,13 +323,6 @@
                   <span>Hybrid</span>
                 </div>
               </div>
-              <p class="timeline-context">AI, Software Development, Automation, Web Dev firm</p>
-              <ul class="list">
-                <li>Shipped multiple AI and software products for paying customers</li>
-                <li>Built a B2B SaaS platform for the mens formalwear industry</li>
-                <li>Developed multiple websites for small to mid-sized businesses</li>
-                <li>Pivoted from IT services to AI and software development in 2023</li>
-              </ul>
             </article>
 
             <article class="timeline-item">
@@ -346,14 +334,6 @@
                   <span>Jan 2024 - Nov 2024</span>
                 </div>
               </div>
-              <p class="timeline-context">Mid-sized manufacturing organization</p>
-              <ul class="list">
-                <li>Led networking, cybersecurity, server, cloud, and end-user systems for production.</li>
-                <li>Designed a secure hybrid IT/OT industrial network integrating presses, robots, and sorters.</li>
-                <li>Built a custom C# app automating workflows and reducing manual work.</li>
-                <li>Led NIST-aligned security initiatives improving insurability and incident readiness.</li>
-                <li>Owned disaster recovery planning, backup strategy design, and tabletop validation exercises.</li>
-              </ul>
             </article>
 
             <article class="timeline-item">
@@ -365,10 +345,6 @@
                   <span>Jun 2022 - Dec 2023</span>
                 </div>
               </div>
-              <ul class="list">
-                <li>Pitched and implemented an internal help-desk system to improve issue tracking and response
-                  workflows.</li>
-              </ul>
             </article>
           </div>
         </div>
@@ -438,10 +414,73 @@
       </div>
     </section>
 
-    <section class="section reveal" id="contact">
+    <section class="section reveal" id="travel">
       <div class="wrap section-grid">
         <div class="section-title">
           <p class="chapter">Chapter 08</p>
+          <h2>Travel Map</h2>
+        </div>
+        <div class="section-body">
+          <p class="section-intro">Places that shaped my curiosity, one state and country at a time.</p>
+          <div class="travel-grid">
+            <article class="map-card">
+              <div class="map-head">
+                <div>
+                  <p class="panel-label">United States</p>
+                  <h3>States visited</h3>
+                </div>
+                <div class="map-head-actions">
+                  <div class="map-stat">
+                    <span data-map-count="us">0</span>
+                    <span class="map-divider">/</span>
+                    <span data-map-total="us">0</span>
+                  </div>
+                  <button class="map-expand" type="button" data-map-expand="us">Expand map</button>
+                </div>
+              </div>
+              <div class="map-frame" data-map="us" data-map-label="United States map"></div>
+              <div class="map-controls">
+                <button class="map-reset" type="button" data-map-reset="us">Reset zoom</button>
+              </div>
+              <div class="map-legend">
+                <span class="legend-chip is-visited">Visited</span>
+                <span class="legend-chip">Not yet</span>
+              </div>
+            </article>
+            <article class="map-card">
+              <div class="map-head">
+                <div>
+                  <p class="panel-label">World</p>
+                  <h3>Countries visited</h3>
+                </div>
+                <div class="map-head-actions">
+                  <div class="map-stat">
+                    <span data-map-count="world">0</span>
+                    <span class="map-divider">/</span>
+                    <span data-map-total="world">0</span>
+                  </div>
+                  <button class="map-expand" type="button" data-map-expand="world">Expand map</button>
+                </div>
+              </div>
+              <div class="map-frame" data-map="world" data-map-label="World map"></div>
+              <div class="map-controls">
+                <button class="map-reset" type="button" data-map-reset="world">Reset zoom</button>
+              </div>
+              <div class="map-legend">
+                <span class="legend-chip is-visited">Visited</span>
+                <span class="legend-chip">Not yet</span>
+              </div>
+            </article>
+          </div>
+          <p class="map-note">Visited locations are highlighted in clay.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="wrap section-grid">
+        <div class="section-title">
+          <p class="chapter">Chapter 09</p>
           <h2>Contact</h2>
         </div>
         <div class="section-body">
@@ -474,6 +513,40 @@
       </div>
     </div>
   </footer>
+
+  <div class="map-overlay" id="map-overlay" aria-hidden="true">
+    <div class="map-overlay-backdrop" data-overlay-close></div>
+    <div class="map-overlay-card" role="dialog" aria-modal="true" aria-labelledby="map-overlay-title">
+      <div class="map-overlay-head">
+        <div>
+          <p class="panel-label">Map detail</p>
+          <h3 id="map-overlay-title">Map</h3>
+        </div>
+        <div class="map-overlay-actions">
+          <button class="map-reset" type="button" data-map-overlay-reset>Reset zoom</button>
+          <button class="map-close" type="button" data-overlay-close>Close</button>
+        </div>
+      </div>
+      <div class="map-overlay-frame" data-map-overlay-frame></div>
+      <p class="map-overlay-hint">Scroll or pinch to zoom. Drag to pan.</p>
+    </div>
+  </div>
+
+  <div class="travel-modal" id="travel-modal" aria-hidden="true">
+    <div class="travel-modal-backdrop" data-travel-close></div>
+    <div class="travel-modal-card" role="dialog" aria-modal="true" aria-labelledby="travel-modal-title">
+      <div class="travel-modal-head">
+        <div>
+          <p class="panel-label">Travel story</p>
+          <h3 id="travel-modal-title">Trip</h3>
+          <p class="travel-modal-subtitle" id="travel-modal-subtitle"></p>
+        </div>
+        <button class="map-close" type="button" data-travel-close>Close</button>
+      </div>
+      <p class="travel-modal-excerpt" id="travel-modal-excerpt"></p>
+      <div class="travel-modal-gallery" id="travel-modal-gallery"></div>
+    </div>
+  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
