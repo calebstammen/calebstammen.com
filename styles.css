@@ -841,10 +841,6 @@ a:hover {
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
-  background-image: url("assets/topo.svg");
-  background-repeat: no-repeat;
-  background-size: 160%;
-  background-position: center;
 }
 
 .map-frame.is-zoomable,
@@ -1021,10 +1017,6 @@ a:hover {
   border: 1px solid rgba(31, 94, 77, 0.2);
   padding: 1rem;
   min-height: clamp(320px, 50vh, 520px);
-  background-image: url("assets/topo.svg");
-  background-repeat: no-repeat;
-  background-size: 160%;
-  background-position: center;
 }
 
 .map-overlay-hint {
@@ -1437,7 +1429,6 @@ body.resume {
   .map-frame {
     min-height: 240px;
     padding: 0.7rem;
-    background-size: 220%;
   }
 
   .map-overlay-card,
