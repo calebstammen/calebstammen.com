@@ -7,7 +7,7 @@
   <title>Caleb Stammen, MSCIA | Software Engineer, AI Lead, IT Manager</title>
   <meta name="description"
     content="Caleb Stammen (MSCIA) - technical leader delivering AI-enabled systems in production across software, IT, automation, and security.">
-  <meta name="theme-color" content="#050912">
+  <meta name="theme-color" content="#0a101b">
 
   <link rel="canonical" href="https://calebstammen.com/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -41,16 +41,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;family=Sora:wght@400;500;600;700&amp;display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260226c">
+  <link rel="stylesheet" href="styles.css?v=20260226e">
   <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
-  <script src="script.js?v=20260226c" defer></script>
+  <script src="script.js?v=20260226e" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true">
+    <span data-scroll-progress></span>
+  </div>
   <div class="bg-shapes" aria-hidden="true">
     <span class="shape shape-one"></span>
     <span class="shape shape-two"></span>
@@ -72,8 +75,8 @@
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
-          <a href="#outside">Off the Clock</a>
-          <a href="#travel">Travel</a>
+          <a class="is-personal" href="#outside">Off the Clock</a>
+          <a class="is-personal" href="#travel">Travel</a>
           <a href="#contact">Contact</a>
         </div>
         <div class="nav-actions">
@@ -84,25 +87,35 @@
     </div>
   </div>
 
+  <aside class="section-rail" data-section-rail aria-label="Section quick navigation">
+    <a data-rail-link href="#about">About</a>
+    <a data-rail-link href="#focus">Focus</a>
+    <a data-rail-link href="#approach">Approach</a>
+    <a data-rail-link href="#work">Work</a>
+    <a data-rail-link href="#experience">Experience</a>
+    <a data-rail-link href="#education">Education</a>
+    <a data-rail-link class="is-personal" href="#outside">Off the Clock</a>
+    <a data-rail-link class="is-personal" href="#travel">Travel</a>
+    <a data-rail-link href="#contact">Contact</a>
+  </aside>
+
   <header class="site-header">
     <div class="wrap hero" id="top">
       <div class="hero-text reveal">
         <p class="kicker">Software Engineer · AI Lead · IT Manager</p>
         <h1>Caleb Stammen</h1>
         <p class="lead">
-          Welcome to my home on the web. This site houses my professional portfolio, contact, a summary of my work, and
-          a snippet of my interests. I’m a technical leader specializing in AI-enabled
-          systems
-          across software development, IT management, automation, and security. I help organizations harness AI
-          responsibly to drive real-world impact.
+          Technical leader building AI-enabled software, internal products, and automation systems that teams trust in
+          production. I focus on delivery that improves real workflows across software, IT, security, and operations.
         </p>
         <div class="hero-actions">
           <a class="btn primary" href="mailto:me@calebstammen.com" target="_blank" rel="noopener">Email</a>
-          <a class="btn ghost" href="resume/" target="_blank" rel="noopener">Resume</a>
-          <a class="btn secondary" href="https://github.com/calebstammen/calebstammen.com" target="_blank"
-            rel="noopener">Source code</a>
-          <a class="btn ghost" href="https://github.com/calebstammen" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn primary" href="https://www.linkedin.com/in/calebstammen/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn secondary" href="resume/" target="_blank" rel="noopener">Resume</a>
+        </div>
+        <div class="hero-links" aria-label="External links">
+          <a href="https://github.com/calebstammen" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/calebstammen/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/calebstammen/calebstammen.com" target="_blank" rel="noopener">Source code</a>
         </div>
         <div class="hero-meta">
           <div>
@@ -410,15 +423,14 @@
       </div>
     </section>
 
-    <section class="section reveal" id="outside">
+    <section class="section section-personal reveal" id="outside">
       <div class="wrap section-grid">
         <div class="section-title">
           <p class="chapter">Chapter 07</p>
           <h2>Off the Clock</h2>
         </div>
         <div class="section-body">
-          <p>I reset in the mountains, with a book, or by building something that doesn’t compile. (interpret this as
-            you wish)</p>
+          <p>I recharge in the mountains, with a good book, and by building things purely for curiosity.</p>
           <div class="tag-row">
             <span class="tag">Hiking</span>
             <span class="tag">Backpacking</span>
@@ -447,7 +459,7 @@
       </div>
     </section>
 
-    <section class="section reveal" id="travel">
+    <section class="section section-personal reveal" id="travel">
       <div class="wrap section-grid">
         <div class="section-title">
           <p class="chapter">Chapter 08</p>

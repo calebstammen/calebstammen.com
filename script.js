@@ -131,30 +131,41 @@ if (revealEls.length) {
   }
 }
 
-// Active nav highlighting (in-page anchors only)
+// Active nav and section rail highlighting (in-page anchors only)
 const navLinks = Array.from(document.querySelectorAll(".nav-links a[href^=\"#\"]"));
-const sectionEntries = navLinks
-  .map((a) => {
-    const id = a.getAttribute("href")?.slice(1);
-    if (!id) return null;
-    const section = document.getElementById(id);
-    if (!section) return null;
-    return { id, a, section };
-  })
-  .filter(Boolean);
+const railLinks = Array.from(document.querySelectorAll("[data-rail-link][href^=\"#\"]"));
+const trackedLinks = [...navLinks, ...railLinks];
+
+const sectionMap = new Map();
+for (const link of trackedLinks) {
+  const id = link.getAttribute("href")?.slice(1);
+  if (!id) continue;
+  const section = document.getElementById(id);
+  if (!section) continue;
+
+  if (!sectionMap.has(id)) {
+    sectionMap.set(id, { id, section, links: [] });
+  }
+  sectionMap.get(id).links.push(link);
+}
+const sectionEntries = Array.from(sectionMap.values());
 
 function setActiveNav(id) {
   for (const entry of sectionEntries) {
     const isActive = entry.id === id;
-    entry.a.classList.toggle("active", isActive);
-    if (isActive) entry.a.setAttribute("aria-current", "location");
-    else entry.a.removeAttribute("aria-current");
+    for (const link of entry.links) {
+      link.classList.toggle("active", isActive);
+      if (isActive) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    }
   }
 }
 
 if (sectionEntries.length) {
-  for (const entry of sectionEntries) {
-    entry.a.addEventListener("click", () => setActiveNav(entry.id));
+  for (const link of trackedLinks) {
+    const id = link.getAttribute("href")?.slice(1);
+    if (!id) continue;
+    link.addEventListener("click", () => setActiveNav(id));
   }
 
   let activeEntry = null;
@@ -188,6 +199,31 @@ if (sectionEntries.length) {
     const nextHash = window.location.hash?.slice(1);
     if (nextHash) setActiveNav(nextHash);
   });
+}
+
+// Scroll progress bar
+const scrollProgress = document.querySelector("[data-scroll-progress]");
+if (scrollProgress) {
+  let ticking = false;
+
+  function updateScrollProgress() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const ratio = max <= 0 ? 1 : Math.min(1, Math.max(0, window.scrollY / max));
+    scrollProgress.style.transform = `scaleX(${ratio})`;
+  }
+
+  function requestProgressUpdate() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(() => {
+      updateScrollProgress();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", requestProgressUpdate, { passive: true });
+  window.addEventListener("resize", requestProgressUpdate);
+  updateScrollProgress();
 }
 
 // Travel maps
