@@ -391,6 +391,7 @@ document.addEventListener("keydown", (event) => {
 async function renderTravelMap(config) {
   const container = config.container;
   if (!container) return;
+  container.style.backgroundImage = "none";
   setMapMessage(container, "Loading map...", "map-loading");
 
   try {
