@@ -556,6 +556,7 @@ function initTravelMaps() {
   }
 
 const visitedStatesInput = [
+  "AL",
   "CA",
   "CT",
   "FL",
@@ -591,6 +592,12 @@ const visitedCountriesInput = [
 
 const travelStories = {
   us: [
+    {
+      state: "AL",
+      title: "Gulf Shores, Alabama",
+      subtitle: "A beach trip with friends, staying right on the beach.",
+      excerpt: "Gulf Shores was a great trip with friends and a good reminder that not every meaningful reset happens in the mountains. Staying at the beach, getting time by the water, and slowing down for a few days made it an easy one to remember.",
+    },
     {
       state: "CA",
       title: "California",
