@@ -52,6 +52,7 @@ for (const el of document.querySelectorAll("[data-copy-email]")) {
 // Mobile nav toggle
 const navToggle = document.querySelector(".nav-toggle");
 const primaryNav = document.getElementById("primary-nav");
+const NAV_BREAKPOINT = "(max-width: 980px)";
 
 if (navToggle && primaryNav) {
   const closeNav = () => {
@@ -68,7 +69,7 @@ if (navToggle && primaryNav) {
 
   for (const link of primaryNav.querySelectorAll("a")) {
     link.addEventListener("click", () => {
-      if (window.matchMedia("(max-width: 1200px)").matches) closeNav();
+      if (window.matchMedia(NAV_BREAKPOINT).matches) closeNav();
     });
   }
 
@@ -77,7 +78,7 @@ if (navToggle && primaryNav) {
   });
 
   window.addEventListener("resize", () => {
-    if (!window.matchMedia("(max-width: 1200px)").matches) closeNav();
+    if (!window.matchMedia(NAV_BREAKPOINT).matches) closeNav();
   });
 }
 
@@ -304,6 +305,15 @@ function normalizeKey(value) {
     .replace(/[^a-z0-9]+/g, "");
 }
 
+function hasStoryContent(story) {
+  return Boolean(
+    story &&
+      (story.excerpt ||
+        (Array.isArray(story.images) && story.images.length) ||
+        story.subtitle)
+  );
+}
+
 function setMapMessage(container, message, className) {
   if (!container) return;
   container.innerHTML = `<p class="${className}">${message}</p>`;
@@ -374,7 +384,7 @@ function openTravelModal(story, fallbackName) {
 
   const title = story?.title || fallbackName || "Visited";
   const subtitle = story?.subtitle || story?.location || "";
-  const excerpt = story?.excerpt || "Visited — story coming soon.";
+  const excerpt = story?.excerpt || "Visited as part of a trip that is probably better told in person.";
 
   travelModalTitle.textContent = title;
   if (travelModalSubtitle) {
@@ -480,7 +490,11 @@ async function renderTravelMap(config) {
 
     if (config.onRegionClick) {
       region
-        .filter((feature) => feature._visited)
+        .filter(
+          (feature) =>
+            feature._visited &&
+            (!config.isInteractive || config.isInteractive(feature))
+        )
         .attr("role", "button")
         .attr("tabindex", "0")
         .style("cursor", "pointer")
@@ -670,8 +684,8 @@ const travelStories = {
     },
     {
       state: "MI",
-      title: "X-ichigan",
-      subtitle: "If you're from Ohio, you spell it X-ichigan!",
+      title: "Michigan",
+      subtitle: "Ohio roots mean I am obligated to keep the rivalry alive.",
       excerpt: "From the Great Lakes to Detroit to Ann Arbor, I've visited Michigan multiple times for sporting events, hikes in the beautiful Upper Peninsula, road trips, casinos, and more.",
       // images: ["assets/travel/michigan-1.jpg", "assets/travel/michigan-2.jpg"],
     },
@@ -868,6 +882,10 @@ const travelStories = {
         const code = US_STATE_ABBR[feature.properties.name];
         return code ? visitedStates.has(code) : false;
       },
+      isInteractive: (feature) => {
+        const code = US_STATE_ABBR[feature.properties.name];
+        return code ? hasStoryContent(storyByState.get(code)) : false;
+      },
       onRegionClick: (feature) => {
         const code = US_STATE_ABBR[feature.properties.name];
         const story = code ? storyByState.get(code) : null;
@@ -896,6 +914,10 @@ const travelStories = {
         const nameKey = normalizeKey(feature.properties.name || "");
         const idKey = normalizeKey(String(feature.id));
         return visitedCountries.has(nameKey) || visitedCountries.has(idKey);
+      },
+      isInteractive: (feature) => {
+        const nameKey = normalizeKey(feature.properties.name || "");
+        return hasStoryContent(storyByCountry.get(nameKey));
       },
       onRegionClick: (feature) => {
         const nameKey = normalizeKey(feature.properties.name || "");
