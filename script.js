@@ -95,8 +95,12 @@
 
   async function copyText(text) {
     if (window.isSecureContext && navigator.clipboard?.writeText) {
-      await navigator.clipboard.writeText(text);
-      return;
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch (error) {
+        console.warn("Clipboard API copy failed, trying fallback:", error);
+      }
     }
 
     const textArea = document.createElement("textarea");
