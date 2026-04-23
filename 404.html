@@ -6,50 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 | Caleb Stammen</title>
   <meta name="description" content="Page not found.">
-  <meta name="theme-color" content="#efe7d8">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#0B1220">
+  <meta name="robots" content="noindex,follow">
 
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260317a">
-  <script src="script.js?v=20260317a" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260422a">
+  <script src="script.js?v=20260422a" defer></script>
 </head>
 
-<body>
+<body class="error-page">
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="bg-orbit" aria-hidden="true">
-    <span class="orb orb-one"></span>
-    <span class="orb orb-two"></span>
-    <span class="orb orb-three"></span>
-  </div>
 
-  <main id="content" class="not-found-shell">
-    <div class="wrap">
-      <div class="not-found-card">
-        <p class="kicker">Wrong Trail</p>
-        <h1>404</h1>
-        <p>The page you were trying to reach is gone, moved, or never made it out of base camp.</p>
+  <main id="content">
+    <div class="wrap error-layout">
+      <section class="error-shell">
+        <p class="eyebrow">404</p>
+        <h1>That page is gone.</h1>
+        <p>The link may have changed, or the page may not exist anymore. The rest of the site is still right where it
+          should be.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="./">Back to home</a>
-          <a class="btn ghost" href="resume/">Resume</a>
-          <a class="btn ghost" href="mailto:me@calebstammen.com">Email</a>
+          <a class="button button-primary" href="./">Back to home</a>
+          <a class="button button-secondary" href="resume/">Resume</a>
         </div>
-      </div>
+      </section>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner">
+    <div class="wrap footer-shell">
       <div>
         <strong>Caleb Stammen</strong>
-        <span>AI systems, product delivery, and operational design</span>
+        <span>Software developer, AI lead, and builder of practical systems.</span>
       </div>
-      <div>
-        <span>&copy;</span>
-        <span id="year"></span>
+      <div class="footer-meta">
+        <span>&copy; <span id="year"></span></span>
       </div>
     </div>
   </footer>

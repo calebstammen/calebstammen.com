@@ -4,49 +4,88 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Caleb Stammen | AI Systems, Product Engineering, and Operational Design</title>
+  <title>Caleb Stammen | Software Developer and AI Lead</title>
   <meta name="description"
-    content="Caleb Stammen builds AI systems, software, and operational tools that hold up in real organizations.">
-  <meta name="theme-color" content="#efe7d8">
+    content="Caleb Stammen builds custom software, internal tools, workflow automations, and practical AI systems for businesses that need dependable execution.">
+  <meta name="theme-color" content="#0B1220">
+  <meta name="robots" content="index,follow">
 
   <link rel="canonical" href="https://calebstammen.com/">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/summit1.jpg">
 
-  <meta property="og:title" content="Caleb Stammen | AI Systems, Product Engineering, and Operational Design">
+  <meta property="og:title" content="Caleb Stammen | Software Developer and AI Lead">
   <meta property="og:description"
-    content="Software engineer, AI lead, and founder shipping AI systems, internal products, and workflow automation built for real operating conditions.">
+    content="Custom software, workflow automation, and practical AI systems built for real operations.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calebstammen.com/">
+  <meta property="og:image" content="https://calebstammen.com/assets/social-card.svg">
+  <meta property="og:image:alt" content="Social card for Caleb Stammen">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Caleb Stammen">
+  <meta property="og:locale" content="en_US">
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Caleb Stammen | AI Systems, Product Engineering, and Operational Design">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caleb Stammen | Software Developer and AI Lead">
   <meta name="twitter:description"
-    content="Software engineer, AI lead, and founder shipping AI systems, internal products, and workflow automation built for real operating conditions.">
+    content="Custom software, workflow automation, and practical AI systems built for real operations.">
+  <meta name="twitter:image" content="https://calebstammen.com/assets/social-card.svg">
+  <meta name="twitter:image:alt" content="Social card for Caleb Stammen">
 
   <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
         "@type": "Person",
         "name": "Caleb Stammen",
         "url": "https://calebstammen.com/",
+        "image": "https://calebstammen.com/assets/social-card.svg",
         "email": "mailto:me@calebstammen.com",
-        "jobTitle": "Software Engineer, AI Lead, IT Manager",
+        "jobTitle": "Software Developer and AI Lead",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Garmann Miller"
+        },
+        "owns": {
+          "@type": "Organization",
+          "name": "Stammen Technology",
+          "url": "https://stammentech.com/"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Western Governors University"
+        },
         "sameAs": [
           "https://github.com/calebstammen",
-          "https://www.linkedin.com/in/calebstammen/"
+          "https://www.linkedin.com/in/calebstammen/",
+          "https://stammentech.com/"
+        ],
+        "knowsAbout": [
+          "Software development",
+          "Artificial intelligence",
+          "Workflow automation",
+          "Internal tools",
+          "Cloud infrastructure",
+          "Cybersecurity"
         ]
+      },
+      "about": {
+        "@type": "Organization",
+        "name": "Stammen Technology",
+        "url": "https://stammentech.com/"
       }
-    </script>
+    }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Instrument+Serif:ital@0;1&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260317a">
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
-  <script src="script.js?v=20260317a" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260422a">
+  <script src="script.js?v=20260422a" defer></script>
 </head>
 
 <body>
@@ -54,530 +93,342 @@
   <div class="scroll-progress" aria-hidden="true">
     <span data-scroll-progress></span>
   </div>
-  <div class="bg-orbit" aria-hidden="true">
-    <span class="orb orb-one"></span>
-    <span class="orb orb-two"></span>
-    <span class="orb orb-three"></span>
-  </div>
 
-  <div class="site-nav">
-    <div class="wrap masthead">
-      <a class="brand" href="#top">Caleb Stammen</a>
+  <header class="site-header">
+    <div class="wrap nav-shell">
+      <a class="brand" href="#top" aria-label="Caleb Stammen home">
+        <span class="brand-mark">CS</span>
+        <span class="brand-lockup">
+          <span>Caleb Stammen</span>
+          <span>Software Developer and AI Lead</span>
+        </span>
+      </a>
+
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
         <span class="nav-toggle-label">Menu</span>
         <span class="nav-toggle-icon" aria-hidden="true"></span>
       </button>
-      <nav class="nav" id="primary-nav" aria-label="Primary navigation">
-        <div class="nav-links">
-          <a href="#systems">Systems</a>
-          <a href="#proof">Proof</a>
-          <a href="#timeline">Timeline</a>
-          <a href="#notes">Field Notes</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="nav-actions">
-          <a class="nav-btn" href="resume/" target="_blank" rel="noopener">Resume</a>
-          <a class="nav-cta" href="mailto:me@calebstammen.com">Email</a>
-        </div>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#services">What I Build</a>
+        <a href="#approach">How I Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-link-secondary" href="resume/" target="_blank" rel="noopener">Resume</a>
+        <a class="button button-primary button-small" href="mailto:me@calebstammen.com" target="_blank"
+          rel="noopener">Start a project</a>
       </nav>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <div class="wrap hero-shell" id="top">
-      <div class="hero-copy reveal">
-        <p class="kicker">Field Manual / AI systems + product engineering</p>
-        <h1>I build AI and software systems that hold up in real operating conditions.</h1>
-        <p class="lead">
-          I'm Caleb Stammen, a software engineer, AI lead, and founder. I work where product, infrastructure,
-          workflow design, and operational reality collide, turning messy internal processes into tools teams can
-          actually trust.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="mailto:me@calebstammen.com">Start a conversation</a>
-          <a class="btn secondary" href="#systems">See selected systems</a>
-        </div>
-        <div class="hero-links" aria-label="External links">
-          <a href="https://github.com/calebstammen" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.linkedin.com/in/calebstammen/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/calebstammen/calebstammen.com" target="_blank" rel="noopener">Source code</a>
-        </div>
-        <div class="hero-meta">
-          <div>
-            <span class="label">Currently</span>
-            <span>AI Lead and Software Developer at Garmann Miller</span>
-          </div>
-          <div>
-            <span class="label">Building</span>
-            <span>Suitflow, a vertical SaaS platform for formalwear shops</span>
-          </div>
-          <div>
-            <span class="label">Strongest Fit</span>
-            <span>AI systems, internal products, automation, and technical leadership</span>
-          </div>
-          <div>
-            <span class="label">Foundation</span>
-            <span>M.S. Cybersecurity and Information Assurance</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal">
-        <figure class="hero-image-frame">
-          <img src="assets/summit1.jpg" width="1400" height="1050" alt="Caleb standing on a snowy mountain summit"
-            loading="eager" decoding="async" fetchpriority="high">
-          <figcaption>White Mountains, New Hampshire</figcaption>
-        </figure>
-        <div class="hero-stack">
-          <article class="info-card">
-            <p class="panel-label">Working Modes</p>
-            <h3>Operator mindset. Builder speed.</h3>
-            <ul class="panel-list">
-              <li>AI systems with rollout, guardrails, and adoption plans</li>
-              <li>Full-stack products built around real workflows</li>
-              <li>Infrastructure, security, and reliability pulled into the design process early</li>
-            </ul>
-          </article>
-          <article class="info-card info-card-accent">
-            <p class="panel-label">Build Zones</p>
-            <h3>Most useful when the work cuts across disciplines.</h3>
-            <p>
-              I do my best work when a project needs product thinking, hands-on engineering, and enough operational
-              judgment to survive contact with the real world.
-            </p>
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap signal-band reveal" aria-label="Core strengths">
-      <article class="signal-card">
-        <p class="panel-label">AI Delivery</p>
-        <h3>From use case to production.</h3>
-        <p>Evaluation, rollout, governance, workflow fit, and practical adoption instead of demo-only AI.</p>
-      </article>
-      <article class="signal-card">
-        <p class="panel-label">Product Engineering</p>
-        <h3>Internal tools and SaaS products.</h3>
-        <p>React, TypeScript, Node, SQL, APIs, payments, and the glue work that makes systems coherent.</p>
-      </article>
-      <article class="signal-card">
-        <p class="panel-label">Automation</p>
-        <h3>Less friction between teams.</h3>
-        <p>Workflow design, routing, notifications, and operational tooling that remove repeatable daily drag.</p>
-      </article>
-      <article class="signal-card">
-        <p class="panel-label">Ops Backbone</p>
-        <h3>Reliability, security, supportability.</h3>
-        <p>IT and cybersecurity roots that keep uptime, risk, and maintenance in the room while things are being built.</p>
-      </article>
     </div>
   </header>
 
   <main id="content">
-    <section class="section reveal" id="systems">
-      <div class="wrap section-grid">
-        <div class="section-title">
-          <p class="chapter">01 / Systems</p>
-          <h2>Selected systems, not vague bullet points.</h2>
-        </div>
-        <div class="section-body">
-          <p class="section-intro">
-            The work that suits me best usually lives in the messy middle: real users, real constraints, and systems
-            that need to deliver more than a polished screenshot.
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Caleb Stammen | Software Developer | AI Lead | Owner, Stammen Technology</p>
+          <h1>I build software and AI systems for real operations.</h1>
+          <p class="hero-lead">
+            I'm Caleb Stammen, AI Lead at Garmann Miller and owner of Stammen Technology. I design and ship internal
+            tools, workflow automations, and practical AI systems that reduce friction, improve coordination, and hold
+            up in production.
           </p>
-          <div class="case-stack">
-            <article class="case-card is-featured">
-              <div class="case-head">
-                <div>
-                  <p class="panel-label">Vertical SaaS / Founder-led build</p>
-                  <h3>Suitflow</h3>
-                </div>
-                <span class="case-tag">React / Node / SQL Server / Stripe / Azure</span>
-              </div>
-              <p class="case-summary">
-                I'm building a wedding-focused operating system for formalwear shops so fittings, tailoring,
-                communication, and billing stop living across disconnected tools.
-              </p>
-              <div class="case-columns">
-                <div class="case-column">
-                  <span>Problem</span>
-                  <p>Most shops still manage complex wedding workflows with spreadsheets, texts, memory, and generic CRM tooling.</p>
-                </div>
-                <div class="case-column">
-                  <span>Built</span>
-                  <p>Multi-tenant product architecture, core frontend and backend systems, auth, payments, messaging, reporting, and release operations.</p>
-                </div>
-                <div class="case-column">
-                  <span>Why it matters</span>
-                  <p>The product is shaped around actual store operations, which makes it faster to use and easier to trust on busy days.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="case-card">
-              <div class="case-head">
-                <div>
-                  <p class="panel-label">AI Knowledge Systems</p>
-                  <h3>AI intranet, LMS, and workflow tooling</h3>
-                </div>
-                <span class="case-tag">Strategy / Architecture / Rollout</span>
-              </div>
-              <p class="case-summary">
-                At Garmann Miller, I co-lead internal AI initiatives that centralize knowledge, improve training, and make AI more useful in day-to-day work.
-              </p>
-              <div class="case-columns">
-                <div class="case-column">
-                  <span>Problem</span>
-                  <p>Good AI ideas fall apart when knowledge is scattered, governance is unclear, and people do not trust the rollout.</p>
-                </div>
-                <div class="case-column">
-                  <span>Built</span>
-                  <p>System design, use-case evaluation, cloud AI infrastructure, governance patterns, and cross-functional delivery for internal platforms.</p>
-                </div>
-                <div class="case-column">
-                  <span>Why it matters</span>
-                  <p>The result is better onboarding, easier information access, and AI that feels grounded in actual work instead of hype.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="case-card">
-              <div class="case-head">
-                <div>
-                  <p class="panel-label">Workflow Automation</p>
-                  <h3>Operational routing, onboarding, and handoff systems</h3>
-                </div>
-                <span class="case-tag">Automation / Internal Operations</span>
-              </div>
-              <p class="case-summary">
-                I've designed internal automations for preboarding, onboarding, communications, and project information routing across teams.
-              </p>
-              <div class="case-columns">
-                <div class="case-column">
-                  <span>Problem</span>
-                  <p>Manual handoffs create hidden delays, duplicate effort, and onboarding that depends too much on whoever remembers what.</p>
-                </div>
-                <div class="case-column">
-                  <span>Built</span>
-                  <p>Maintainable workflows with clear notifications, business logic, and operational visibility instead of one-off scripts nobody wants to own.</p>
-                </div>
-                <div class="case-column">
-                  <span>Why it matters</span>
-                  <p>Teams move faster, fewer details get dropped, and the system keeps helping after the original project excitement wears off.</p>
-                </div>
-              </div>
-            </article>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:me@calebstammen.com" target="_blank"
+              rel="noopener">Start a project</a>
+            <a class="button button-secondary" href="#work">View selected work</a>
           </div>
+          <ul class="hero-proof" aria-label="Quick proof points">
+            <li>
+              <span class="hero-proof-label">Current role</span>
+              <strong>AI Lead at Garmann Miller</strong>
+            </li>
+            <li>
+              <span class="hero-proof-label">Independent work</span>
+              <strong>Owner of Stammen Technology</strong>
+            </li>
+            <li>
+              <span class="hero-proof-label">Foundation</span>
+              <strong>M.S. Cybersecurity &amp; Information Assurance</strong>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal">
+          <figure class="hero-media" data-parallax>
+            <img src="assets/summit1.jpg" width="1400" height="1050" alt="Caleb Stammen standing on a mountain ridge"
+              loading="eager" decoding="async" fetchpriority="high">
+            <figcaption class="hero-caption">
+              <p class="eyebrow">Builder / operator</p>
+              <p>Custom software, internal platforms, workflow automation, and AI systems built around how people
+                actually work.</p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="proof">
-      <div class="wrap section-grid">
-        <div class="section-title">
-          <p class="chapter">02 / Proof</p>
-          <h2>How I like to work.</h2>
-        </div>
-        <div class="section-body">
-          <p class="section-intro">
-            I do my best work when a team needs somebody who can zoom from strategy into implementation without losing
-            the operational details.
-          </p>
-          <div class="proof-grid">
-            <article class="principle-card">
-              <p class="step-chip">01</p>
-              <h3>Start with workflow, not tech.</h3>
-              <p>I want to know who owns the work, where it breaks, and what "better" means before I get attached to a tool or architecture.</p>
-            </article>
-            <article class="principle-card">
-              <p class="step-chip">02</p>
-              <h3>Make AI earn its place.</h3>
-              <p>If AI adds latency, risk, or confusion without changing outcomes, it should not be in the system. I care about fit, not novelty.</p>
-            </article>
-            <article class="principle-card">
-              <p class="step-chip">03</p>
-              <h3>Ship the whole system.</h3>
-              <p>Product, infrastructure, reliability, permissions, monitoring, support, and rollout all matter. Production is part of the design.</p>
-            </article>
-            <article class="principle-card">
-              <p class="step-chip">04</p>
-              <h3>Keep leaders and users aligned.</h3>
-              <p>I like translating between executives, operators, and technical teams so the build has sponsorship, context, and a chance to stick.</p>
-            </article>
-            <article class="capability-panel">
-              <div>
-                <p class="panel-label">Tools I reach for</p>
-                <h3>Broad enough to move across the stack without pretending every problem needs the same answer.</h3>
-              </div>
-              <div class="tag-row" aria-label="Technical capabilities">
-                <span class="tag">React</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">Node.js</span>
-                <span class="tag">Python</span>
-                <span class="tag">C#</span>
-                <span class="tag">SQL Server</span>
-                <span class="tag">Azure</span>
-                <span class="tag">AWS</span>
-                <span class="tag">GitHub Actions</span>
-                <span class="tag">Stripe</span>
-                <span class="tag">RAG</span>
-                <span class="tag">Automation</span>
-                <span class="tag">NIST</span>
-                <span class="tag">Observability</span>
-              </div>
-            </article>
-          </div>
+    <section class="section credibility-section">
+      <div class="wrap">
+        <div class="credibility-grid">
+          <article class="credibility-item reveal">
+            <p class="eyebrow">Current seat</p>
+            <h2>Leading AI and software initiatives inside a real operating business.</h2>
+            <p>I work inside the constraints that matter: adoption, cost, rollout, security, and whether the system
+              still helps six months later.</p>
+          </article>
+          <article class="credibility-item reveal">
+            <p class="eyebrow">Independent build</p>
+            <h3>Stammen Technology + Suitflow</h3>
+            <p>I also build my own products and client systems end to end, from architecture and code to deployment and
+              production support.</p>
+          </article>
+          <article class="credibility-item reveal">
+            <p class="eyebrow">Operating range</p>
+            <h3>Software, AI, automation, infrastructure</h3>
+            <p>I'm most useful when the work touches product, systems, and operations at the same time.</p>
+          </article>
+          <article class="credibility-item reveal">
+            <p class="eyebrow">Bias</p>
+            <h3>Useful beats flashy.</h3>
+            <p>Adoption beats demos. Reliability beats theater. That applies to software, AI, and the way I work.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="timeline">
-      <div class="wrap section-grid">
-        <div class="section-title">
-          <p class="chapter">03 / Timeline</p>
-          <h2>Career route.</h2>
+    <section class="section section-work" id="work">
+      <div class="wrap section-shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Selected work</p>
+          <h2>A few systems I've built to remove friction and make daily work easier to run.</h2>
+          <p>Each one had real constraints, real users, and real operational consequences.</p>
         </div>
-        <div class="section-body">
-          <p class="section-intro">
-            My path started in IT and cybersecurity, which is why uptime, supportability, and safer defaults show up in the software I build.
-          </p>
-          <div class="route-grid">
-            <div class="timeline">
-              <article class="timeline-item">
-                <div class="timeline-head">
-                  <h3>Software Developer / AI Lead</h3>
-                  <div class="timeline-meta">
-                    <span>Garmann Miller</span>
-                    <span class="sep">&bull;</span>
-                    <span>Nov 2024 - Present</span>
-                    <span class="sep">&bull;</span>
-                    <span>Hybrid</span>
-                  </div>
-                </div>
-                <p class="timeline-context">Leading internal AI and software initiatives across knowledge systems, governance, workflow tooling, and adoption.</p>
-              </article>
 
-              <article class="timeline-item">
-                <div class="timeline-head">
-                  <h3>Founder &amp; Full-Stack Engineer</h3>
-                  <div class="timeline-meta">
-                    <span>Suitflow</span>
-                    <span class="sep">&bull;</span>
-                    <span>Dec 2025 - Present</span>
-                    <span class="sep">&bull;</span>
-                    <span>Hybrid</span>
-                  </div>
-                </div>
-                <p class="timeline-context">Building a vertical SaaS platform end to end across product, engineering, infrastructure, billing, and production readiness.</p>
-              </article>
-
-              <article class="timeline-item">
-                <div class="timeline-head">
-                  <h3>Founder / Owner</h3>
-                  <div class="timeline-meta">
-                    <span>Stammen Technology</span>
-                    <span class="sep">&bull;</span>
-                    <span>Dec 2022 - Present</span>
-                    <span class="sep">&bull;</span>
-                    <span>Hybrid</span>
-                  </div>
-                </div>
-                <p class="timeline-context">Delivering AI automations, software systems, and web experiences for small to mid-sized businesses.</p>
-              </article>
-
-              <article class="timeline-item">
-                <div class="timeline-head">
-                  <h3>IT Manager (Technology Administrator)</h3>
-                  <div class="timeline-meta">
-                    <span>Pax Machine Works</span>
-                    <span class="sep">&bull;</span>
-                    <span>Jan 2024 - Nov 2024</span>
-                  </div>
-                </div>
-                <p class="timeline-context">Owned infrastructure, cybersecurity, vendor relationships, and reliability in a manufacturing environment where downtime had immediate cost.</p>
-              </article>
-
-              <article class="timeline-item">
-                <div class="timeline-head">
-                  <h3>Information Technology Intern</h3>
-                  <div class="timeline-meta">
-                    <span>Pax Machine Works</span>
-                    <span class="sep">&bull;</span>
-                    <span>Jun 2022 - Dec 2023</span>
-                  </div>
-                </div>
-                <p class="timeline-context">Built early internal tooling, improved support workflows, and developed the operational foundation that still shapes how I ship software.</p>
-              </article>
+        <article class="case-study case-study-featured reveal">
+          <div class="case-study-copy">
+            <p class="eyebrow">Featured project</p>
+            <h3>Suitflow</h3>
+            <p class="case-study-lead">A vertical SaaS platform for formalwear shops.</p>
+            <p>
+              I built Suitflow to help formalwear shops manage fittings, tailoring, special orders, communication, and
+              billing inside one system built around how stores actually operate.
+            </p>
+            <ul class="case-list">
+              <li><strong>Role:</strong> Founder, product engineer, and operator.</li>
+              <li><strong>Build:</strong> Multi-tenant SaaS with React, TypeScript, Node, SQL Server, auth, payments,
+                and messaging.</li>
+              <li><strong>Why it matters:</strong> It replaces fragmented day-to-day workflows with one operational
+                system designed for the reality of a shop floor.</li>
+            </ul>
+          </div>
+          <div class="case-study-meta">
+            <div>
+              <span class="metric-label">Scope</span>
+              <p>Product, frontend, backend, data model, infrastructure, release operations</p>
             </div>
+            <div>
+              <span class="metric-label">Focus</span>
+              <p>Operational clarity, tenant-safe workflows, production readiness</p>
+            </div>
+            <div>
+              <span class="metric-label">Stack</span>
+              <p>React, TypeScript, Node.js, Prisma, SQL Server, Azure, Stripe</p>
+            </div>
+          </div>
+        </article>
 
-            <aside class="credentials-card">
-              <p class="panel-label">Credentials</p>
-              <h3>Technical range with an ops backbone.</h3>
-              <ul class="panel-list">
-                <li>M.S. Cybersecurity and Information Assurance</li>
-                <li>B.S. Information Technology</li>
-                <li>NVIDIA Generative AI LLMs and AWS Cloud Practitioner</li>
-                <li>CompTIA PenTest+, CySA+, Security+, Network+, and A+</li>
+        <div class="case-study-grid">
+          <article class="case-study reveal">
+            <div class="case-study-copy">
+              <p class="eyebrow">Internal systems</p>
+              <h3>AI intranet and knowledge systems at Garmann Miller</h3>
+              <p>I design and ship internal AI and software systems that support knowledge flow, training, meeting
+                capture, and day-to-day execution inside the firm.</p>
+              <ul class="case-list">
+                <li><strong>Problem:</strong> Knowledge, onboarding, and communication were spread across too many
+                  places.</li>
+                <li><strong>Build:</strong> Internal platforms and workflows that connect AI support with practical
+                  governance and rollout discipline.</li>
+                <li><strong>Result:</strong> Better access to institutional knowledge without treating AI like a novelty
+                  project.</li>
               </ul>
-              <p class="credentials-note">
-                I like shipping quickly, but not recklessly. That balance comes from spending time in environments where reliability and risk were never abstract.
-              </p>
-            </aside>
-          </div>
+            </div>
+          </article>
+
+          <article class="case-study reveal">
+            <div class="case-study-copy">
+              <p class="eyebrow">Operations automation</p>
+              <h3>Manufacturing automation and systems improvement</h3>
+              <p>At Pax Machine Works, I worked across infrastructure, cybersecurity, automation, and software in an
+                environment where downtime and weak process design had immediate cost.</p>
+              <ul class="case-list">
+                <li><strong>Problem:</strong> Manual workflows and fragile systems were slowing operations down.</li>
+                <li><strong>Build:</strong> A custom C# application plus IT and security improvements tied to real
+                  operational needs.</li>
+                <li><strong>Result:</strong> The application alone saved more than 200 labor hours annually while the
+                  surrounding environment became more secure and reliable.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-personal reveal" id="notes">
-      <div class="wrap section-grid">
-        <div class="section-title">
-          <p class="chapter">04 / Field Notes</p>
-          <h2>Curiosity outside of work feeds the work too.</h2>
+    <section class="section section-services" id="services">
+      <div class="wrap section-shell section-shell-split">
+        <div class="section-heading reveal">
+          <p class="eyebrow">What I build</p>
+          <h2>The work usually falls into four buckets.</h2>
+          <p>Different tools, same standard: practical systems that make the business run better.</p>
         </div>
-        <div class="section-body">
-          <div class="notes-grid">
-            <article class="notes-card">
-              <p class="section-intro">
-                The mountain photos are here on purpose. I like long drives, hard trails, new cities, and places that clear your head.
-              </p>
-              <p>
-                That same part of me is why I enjoy technical work that starts fuzzy and gets better through observation,
-                iteration, and staying calm when the route changes.
-              </p>
-              <div class="tag-row">
-                <span class="tag">Hiking</span>
-                <span class="tag">Backpacking</span>
-                <span class="tag">Travel</span>
-                <span class="tag">Reading</span>
-                <span class="tag">Woodworking</span>
-                <span class="tag">Weightlifting</span>
-                <span class="tag">Music</span>
-              </div>
-            </article>
-            <div class="photo-grid photo-grid-mosaic" aria-label="Outdoor photo gallery">
-              <figure class="photo-card">
-                <img src="assets/rocks.jpg" width="1400" height="1050" alt="Caleb sitting on rocks overlooking the mountains"
-                  loading="lazy" decoding="async">
-              </figure>
-              <figure class="photo-card">
-                <img src="assets/franconia1.jpg" width="1400" height="1050" alt="Caleb sitting in the snow on a mountain ridge"
-                  loading="lazy" decoding="async">
-              </figure>
-              <figure class="photo-card">
-                <img src="assets/rock1.jpg" width="1400" height="1050" alt="Caleb sitting on a rocky overlook"
-                  loading="lazy" decoding="async">
-              </figure>
-              <figure class="photo-card">
-                <img src="assets/bushes1.jpg" width="1400" height="1050" alt="Caleb standing among mountain brush"
-                  loading="lazy" decoding="async">
-              </figure>
+
+        <div class="service-list">
+          <article class="service-item reveal">
+            <span class="service-index">01</span>
+            <div>
+              <h3>Custom software</h3>
+              <p>Internal tools and business systems that replace spreadsheets, email chains, and brittle manual
+                processes.</p>
             </div>
-          </div>
-
-          <div class="travel-summary">
-            <article class="travel-note">
-              <p class="panel-label">Favorite Reset</p>
-              <h3>White Mountains</h3>
-              <p>Fourteen hours one way, late November weather, and still one of the easiest trips to recommend.</p>
-            </article>
-            <article class="travel-note">
-              <p class="panel-label">Perspective Shift</p>
-              <h3>Travel that changes your pacing.</h3>
-              <p>Trips abroad and time away from routine are a reliable way for me to come back with better questions and cleaner priorities.</p>
-            </article>
-            <article class="travel-note">
-              <p class="panel-label">Side Quest</p>
-              <h3>The maps stay.</h3>
-              <p>They are not the main point of the portfolio, but they are a truthful one: I like exploring, and that curiosity carries into the work.</p>
-            </article>
-          </div>
-
-          <div class="travel-grid">
-            <article class="map-card">
-              <div class="map-head">
-                <div>
-                  <p class="panel-label">United States</p>
-                  <h3>States visited</h3>
-                </div>
-                <div class="map-head-actions">
-                  <div class="map-stat">
-                    <span data-map-count="us">0</span>
-                    <span class="map-divider">/</span>
-                    <span data-map-total="us">0</span>
-                  </div>
-                  <button class="map-expand" type="button" data-map-expand="us">Expand map</button>
-                </div>
-              </div>
-              <div class="map-frame" data-map="us" data-map-label="United States travel map"></div>
-              <div class="map-controls">
-                <button class="map-reset" type="button" data-map-reset="us">Reset zoom</button>
-              </div>
-              <div class="map-legend">
-                <span class="legend-chip is-visited">Visited</span>
-                <span class="legend-chip">Not yet</span>
-              </div>
-            </article>
-            <article class="map-card">
-              <div class="map-head">
-                <div>
-                  <p class="panel-label">World</p>
-                  <h3>Countries visited</h3>
-                </div>
-                <div class="map-head-actions">
-                  <div class="map-stat">
-                    <span data-map-count="world">0</span>
-                    <span class="map-divider">/</span>
-                    <span data-map-total="world">0</span>
-                  </div>
-                  <button class="map-expand" type="button" data-map-expand="world">Expand map</button>
-                </div>
-              </div>
-              <div class="map-frame" data-map="world" data-map-label="World travel map"></div>
-              <div class="map-controls">
-                <button class="map-reset" type="button" data-map-reset="world">Reset zoom</button>
-              </div>
-              <div class="map-legend">
-                <span class="legend-chip is-visited">Visited</span>
-                <span class="legend-chip">Not yet</span>
-              </div>
-            </article>
-          </div>
+          </article>
+          <article class="service-item reveal">
+            <span class="service-index">02</span>
+            <div>
+              <h3>Practical AI systems</h3>
+              <p>AI workflows, knowledge systems, and internal tools designed with guardrails, rollout thinking, and
+                real users in mind.</p>
+            </div>
+          </article>
+          <article class="service-item reveal">
+            <span class="service-index">03</span>
+            <div>
+              <h3>Workflow automation</h3>
+              <p>Automations and integrations that reduce coordination overhead, tighten handoffs, and remove repeated
+                busywork.</p>
+            </div>
+          </article>
+          <article class="service-item reveal">
+            <span class="service-index">04</span>
+            <div>
+              <h3>Technical leadership</h3>
+              <p>Architecture, execution, tool evaluation, and delivery discipline for projects that need more than a
+                quick prototype.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="contact">
-      <div class="wrap section-grid">
-        <div class="section-title">
-          <p class="chapter">05 / Contact</p>
-          <h2>If the work needs range, ownership, and follow-through, let's talk.</h2>
+    <section class="section section-approach" id="approach">
+      <div class="wrap section-shell">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How I work</p>
+          <h2>I try to solve the real bottleneck, not just build around it.</h2>
         </div>
-        <div class="section-body">
-          <div class="contact-panel">
-            <div class="contact-copy">
-              <p class="panel-label">Open to connect</p>
-              <h3>I'm especially useful in roles and projects that need someone who can move between strategy, engineering, and operational execution.</h3>
-              <p>
-                That can mean internal AI systems, workflow-heavy software, founding engineer work, or technical
-                leadership where the job is not just to build something, but to help it stick.
-              </p>
-              <div class="tag-row">
-                <span class="tag">AI Systems</span>
-                <span class="tag">Internal Tools</span>
-                <span class="tag">Founding Engineer</span>
-                <span class="tag">Workflow Automation</span>
-                <span class="tag">Technical Leadership</span>
-              </div>
+
+        <div class="approach-grid">
+          <article class="approach-item reveal">
+            <span class="service-index">01</span>
+            <h3>Find the constraint</h3>
+            <p>I start with the actual problem: what is slow, fragile, hard to trust, or easy to ignore.</p>
+          </article>
+          <article class="approach-item reveal">
+            <span class="service-index">02</span>
+            <h3>Design for reality</h3>
+            <p>I account for data, workflow, security, rollout, and support early so the system does not collapse the
+              moment it meets normal business pressure.</p>
+          </article>
+          <article class="approach-item reveal">
+            <span class="service-index">03</span>
+            <h3>Ship for adoption</h3>
+            <p>I care about whether people use the system, trust the output, and feel less friction after it goes
+              live.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-about" id="about">
+      <div class="wrap about-grid">
+        <figure class="about-media reveal">
+          <img src="assets/rocks.jpg" width="1400" height="1050"
+            alt="Caleb Stammen outdoors in the mountains" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="about-copy reveal">
+          <p class="eyebrow">About me</p>
+          <h2>Built in software. Shaped by operations.</h2>
+          <p>
+            I started learning to code at 13 after saving for my first laptop. Later I came up through infrastructure,
+            cybersecurity, and IT leadership, which is still how I think about software today.
+          </p>
+          <p>
+            I care about architecture and clean code, but I care just as much about uptime, rollout, support, and
+            whether the system makes sense for the people using it. That mix is why I'm usually most useful when the
+            work is messy, cross-functional, and tied to real operational stakes.
+          </p>
+          <p class="about-note">Outside of work, I reset in the mountains, read a lot, and build things by hand when I
+            can.</p>
+        </div>
+      </div>
+
+      <div class="wrap proof-grid">
+        <article class="proof-panel reveal">
+          <p class="eyebrow">Experience snapshot</p>
+          <div class="timeline-list">
+            <div class="timeline-row">
+              <strong>Garmann Miller</strong>
+              <span>Software Developer / AI Lead</span>
             </div>
-            <div class="contact-actions">
-              <a class="btn primary" href="mailto:me@calebstammen.com">Email me</a>
-              <button class="btn ghost" type="button" data-copy-email>Copy email</button>
-              <a class="btn ghost" href="resume/" target="_blank" rel="noopener">Resume</a>
-              <a class="btn ghost" href="https://github.com/calebstammen" target="_blank" rel="noopener">GitHub</a>
-              <a class="btn ghost" href="https://www.linkedin.com/in/calebstammen/" target="_blank"
-                rel="noopener">LinkedIn</a>
+            <div class="timeline-row">
+              <strong>Stammen Technology</strong>
+              <span>Owner</span>
             </div>
+            <div class="timeline-row">
+              <strong>Suitflow</strong>
+              <span>Founder / Full-Stack Engineer</span>
+            </div>
+            <div class="timeline-row">
+              <strong>Pax Machine Works</strong>
+              <span>Former IT Manager</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proof-panel reveal">
+          <p class="eyebrow">Credentials</p>
+          <ul class="credential-list">
+            <li>M.S. Cybersecurity &amp; Information Assurance</li>
+            <li>B.S. Information Technology</li>
+            <li>NVIDIA Generative AI LLMs</li>
+            <li>AWS Cloud Practitioner</li>
+            <li>CompTIA PenTest+, CySA+, Security+, Network+, A+</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="wrap">
+        <div class="contact-shell reveal">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>If your business has a process that is slow, manual, or hard to trust, I can help turn it into
+              dependable software.</h2>
+            <p>I'm a good fit when the work needs product thinking, systems thinking, and someone who will actually
+              carry it through to a working result.</p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:me@calebstammen.com" target="_blank" rel="noopener">Email
+              me</a>
+            <button class="button button-secondary" type="button" data-copy-email>Copy email</button>
+            <a class="button button-ghost" href="resume/" target="_blank" rel="noopener">Resume</a>
+            <a class="button button-ghost" href="https://www.linkedin.com/in/calebstammen/" target="_blank"
+              rel="noopener">LinkedIn</a>
+            <a class="button button-ghost" href="https://github.com/calebstammen" target="_blank"
+              rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
@@ -585,51 +436,17 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-inner">
+    <div class="wrap footer-shell">
       <div>
         <strong>Caleb Stammen</strong>
-        <span>AI systems, product delivery, and operational design</span>
+        <span>Software developer, AI lead, and builder of practical systems.</span>
       </div>
-      <div>
-        <span>&copy;</span>
-        <span id="year"></span>
+      <div class="footer-meta">
+        <a href="https://stammentech.com/" target="_blank" rel="noopener">Stammen Technology</a>
+        <span>&copy; <span id="year"></span></span>
       </div>
     </div>
   </footer>
-
-  <div class="map-overlay" id="map-overlay" aria-hidden="true">
-    <div class="map-overlay-backdrop" data-overlay-close></div>
-    <div class="map-overlay-card" role="dialog" aria-modal="true" aria-labelledby="map-overlay-title">
-      <div class="map-overlay-head">
-        <div>
-          <p class="panel-label">Map detail</p>
-          <h3 id="map-overlay-title">Map</h3>
-        </div>
-        <div class="map-overlay-actions">
-          <button class="map-reset" type="button" data-map-overlay-reset>Reset zoom</button>
-          <button class="map-close" type="button" data-overlay-close>Close</button>
-        </div>
-      </div>
-      <div class="map-overlay-frame" data-map-overlay-frame></div>
-      <p class="map-overlay-hint">Scroll or pinch to zoom. Drag to pan.</p>
-    </div>
-  </div>
-
-  <div class="travel-modal" id="travel-modal" aria-hidden="true">
-    <div class="travel-modal-backdrop" data-travel-close></div>
-    <div class="travel-modal-card" role="dialog" aria-modal="true" aria-labelledby="travel-modal-title">
-      <div class="travel-modal-head">
-        <div>
-          <p class="panel-label">Travel story</p>
-          <h3 id="travel-modal-title">Trip</h3>
-          <p class="travel-modal-subtitle" id="travel-modal-subtitle"></p>
-        </div>
-        <button class="map-close" type="button" data-travel-close>Close</button>
-      </div>
-      <p class="travel-modal-excerpt" id="travel-modal-excerpt"></p>
-      <div class="travel-modal-gallery" id="travel-modal-gallery"></div>
-    </div>
-  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
