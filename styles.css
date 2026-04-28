@@ -245,7 +245,7 @@ strong {
 
 .button-small {
   min-height: 42px;
-  padding: 0.7rem 1rem;
+  padding: 0.7rem 0.95rem;
 }
 
 .site-header {
@@ -261,7 +261,7 @@ strong {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
   min-height: 78px;
 }
 
@@ -312,11 +312,13 @@ strong {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: clamp(0.55rem, 1vw, 0.85rem);
+  min-width: 0;
 }
 
 .site-nav a {
   position: relative;
+  font-size: 0.96rem;
   font-weight: 700;
   color: var(--text-muted);
   transition: color 180ms ease;
@@ -435,9 +437,9 @@ strong {
 
 .hero-copy h1 {
   margin: 0.9rem 0 1.25rem;
-  max-width: 16ch;
+  max-width: 18ch;
   font-family: var(--font-display);
-  font-size: 4.6rem;
+  font-size: clamp(3.65rem, 6vw, 4.6rem);
   line-height: 0.98;
   letter-spacing: 0;
 }
@@ -489,8 +491,8 @@ strong {
 
 .hero-proof {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
   list-style: none;
   margin: 0;
   padding: 1.25rem 0 0;
@@ -499,6 +501,10 @@ strong {
 
 .hero-proof li {
   min-width: 0;
+  padding: 0.9rem 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(243, 244, 246, 0.08);
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .hero-proof strong {
@@ -623,7 +629,6 @@ strong {
 .about-copy p,
 .contact-copy p,
 .case-study-copy p,
-.service-item p,
 .approach-item p {
   color: var(--text-soft);
 }
@@ -699,7 +704,6 @@ strong {
 }
 
 .case-study h3,
-.service-item h3,
 .approach-item h3,
 .resume-card h2,
 .resume-section h2,
@@ -718,7 +722,6 @@ strong {
   color: var(--text);
 }
 
-.case-list,
 .credential-list,
 .resume-list {
   display: grid;
@@ -727,7 +730,6 @@ strong {
   margin: 1rem 0 0;
 }
 
-.case-list li::marker,
 .credential-list li::marker,
 .resume-list li::marker {
   color: var(--accent-bright);
@@ -755,24 +757,6 @@ strong {
 
 .case-detail-grid-compact {
   grid-template-columns: 1fr;
-}
-
-.case-study-meta {
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-}
-
-.case-study-meta div {
-  padding: 1rem 1.1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(243, 244, 246, 0.08);
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.case-study-meta p {
-  margin: 0.35rem 0 0;
-  color: var(--text-soft);
 }
 
 .project-preview {
@@ -858,10 +842,6 @@ strong {
   grid-column: 1 / -1;
 }
 
-.service-list {
-  display: grid;
-}
-
 .skills-grid {
   display: grid;
   gap: 1rem;
@@ -896,23 +876,6 @@ strong {
   padding: 0.3rem 0.6rem;
   color: var(--text-muted);
   font-size: 0.8rem;
-}
-
-.service-item {
-  display: grid;
-  grid-template-columns: 84px minmax(0, 1fr);
-  gap: 1rem;
-  padding-block: 1.25rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.service-item:first-child {
-  padding-top: 0;
-}
-
-.service-item:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
 }
 
 .service-index {
@@ -1303,17 +1266,19 @@ strong {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1280px) {
   .nav-toggle {
     display: inline-flex;
     position: relative;
+    margin-right: clamp(0.35rem, 2vw, 1rem);
   }
 
   .site-nav {
     position: absolute;
     top: calc(100% + 0.85rem);
-    right: var(--gutter);
-    width: min(360px, calc(100vw - (var(--gutter) * 2)));
+    left: var(--gutter);
+    right: auto;
+    width: min(420px, calc(100vw - (var(--gutter) * 2)));
     padding: 1rem;
     border-radius: var(--radius-lg);
     border: 1px solid var(--line-strong);
@@ -1339,7 +1304,9 @@ strong {
   .site-nav a::after {
     bottom: -0.15rem;
   }
+}
 
+@media (max-width: 900px) {
   .hero-grid {
     min-height: auto;
   }
@@ -1396,7 +1363,6 @@ strong {
   }
 
   .case-study h3,
-  .service-item h3,
   .approach-item h3,
   .resume-card h2,
   .resume-section h2,
@@ -1415,11 +1381,6 @@ strong {
   .credibility-item:first-child,
   .credibility-item:not(:first-child) {
     grid-column: auto;
-  }
-
-  .service-item {
-    grid-template-columns: 1fr;
-    gap: 0.4rem;
   }
 
   .hero-media {

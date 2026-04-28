@@ -2,7 +2,7 @@
   document.documentElement.classList.add("js");
 
   const EMAIL = "me@calebstammen.com";
-  const NAV_BREAKPOINT = "(max-width: 900px)";
+  const NAV_BREAKPOINT = "(max-width: 1280px)";
   const reduceMotionQuery =
     window.matchMedia?.("(prefers-reduced-motion: reduce)") ?? null;
   const motionSubscribers = new Set();
