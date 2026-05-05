@@ -4,48 +4,62 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 | Caleb Stammen</title>
+  <title>Page Not Found | Caleb Stammen</title>
   <meta name="description" content="Page not found.">
-  <meta name="theme-color" content="#0B1220">
+  <meta name="theme-color" content="#07111f">
   <meta name="robots" content="noindex,follow">
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260428b">
-  <script src="script.js?v=20260428b" defer></script>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260505">
+  <script src="/script.js?v=20260505" defer></script>
 </head>
 
-<body class="error-page">
+<body>
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <main id="content">
-    <div class="wrap error-layout">
-      <section class="error-shell">
-        <p class="eyebrow">404</p>
-        <h1>That page is gone.</h1>
-        <p>The link may have changed, or the page may not exist anymore. The rest of the site is still right where it
-          should be.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="./">Back to home</a>
-          <a class="button button-secondary" href="resume/">Resume</a>
-        </div>
-      </section>
+  <header class="site-header">
+    <div class="wrap nav-shell">
+      <a class="brand" href="/" aria-label="Caleb Stammen home">
+        <span class="brand-mark">CS</span>
+        <span class="brand-text"><strong>Caleb Stammen</strong><span>Secure Software and AI</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="primary-nav"><span></span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/work/">Work</a>
+        <a href="/projects/">Projects</a>
+        <a href="/contact/">Contact</a>
+        <a href="/resume/">Resume</a>
+      </nav>
     </div>
+  </header>
+
+  <main id="content">
+    <section class="error-layout">
+      <div class="wrap">
+        <div class="note-panel error-shell">
+          <span class="section-kicker">404</span>
+          <h1>That page is not here.</h1>
+          <p>The link may have changed during the redesign. The main portfolio, projects, resume, and contact page are
+            still available.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="/">Back home</a>
+            <a class="button button-secondary" href="/projects/">View projects</a>
+            <a class="button button-secondary" href="/resume/">Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="wrap footer-shell">
       <div>
         <strong>Caleb Stammen</strong>
-        <span>Software and AI lead, founder, and builder of practical systems.</span>
+        <span>Secure software and AI.</span>
       </div>
-      <div class="footer-meta">
-        <span>&copy; <span id="year"></span></span>
-      </div>
+      <span>&copy; <span data-year></span></span>
     </div>
   </footer>
 

@@ -2,10 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://calebstammen.com/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/about/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/work/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/projects/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/projects/suitflow/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/projects/atlas/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/projects/stammen-technology/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/credentials/</loc>
+    <lastmod>2026-05-05</lastmod>
+  </url>
+  <url>
+    <loc>https://calebstammen.com/contact/</loc>
+    <lastmod>2026-05-05</lastmod>
   </url>
   <url>
     <loc>https://calebstammen.com/resume/</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-05-05</lastmod>
   </url>
 </urlset>
