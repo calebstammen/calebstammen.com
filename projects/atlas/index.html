@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atlas Case Study | Caleb Stammen</title>
+  <meta name="description"
+    content="Atlas case study by Caleb Stammen: a private, local-first iOS travel map and journal built with SwiftUI and SwiftData.">
+  <meta name="theme-color" content="#07111f">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://calebstammen.com/projects/atlas/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260505">
+  <script src="/script.js?v=20260505" defer></script>
+  <meta property="og:title" content="Atlas Case Study | Caleb Stammen">
+  <meta property="og:description"
+    content="A private, local-first iOS travel map built with SwiftUI and SwiftData.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://calebstammen.com/projects/atlas/">
+  <meta property="og:image" content="https://calebstammen.com/assets/social-card.png">
+</head>
+
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav-shell">
+      <a class="brand" href="/" aria-label="Caleb Stammen home">
+        <span class="brand-mark">CS</span>
+        <span class="brand-text"><strong>Caleb Stammen</strong><span>Secure Software and AI</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="primary-nav"><span></span></button>
+      <nav class="site-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/work/">Work</a>
+        <a href="/projects/" aria-current="page">Projects</a>
+        <a href="/contact/">Contact</a>
+        <a href="/resume/">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="case-hero">
+      <div class="wrap case-hero-grid">
+        <div>
+          <span class="section-kicker">Case study</span>
+          <h1>Atlas: a private, local-first travel map for iOS.</h1>
+          <p>Atlas is a local-first iOS travel journal and travel map app built with SwiftUI and SwiftData that helps
+            people privately track everywhere they have actually been without requiring an account or cloud sync.</p>
+          <div class="case-facts">
+            <div class="case-fact">
+              <span class="meta-label">Role</span>
+              <strong>Product builder</strong>
+            </div>
+            <div class="case-fact">
+              <span class="meta-label">Platform</span>
+              <strong>iOS, SwiftUI, SwiftData</strong>
+            </div>
+            <div class="case-fact">
+              <span class="meta-label">Architecture</span>
+              <strong>Local-first, privacy by default</strong>
+            </div>
+            <div class="case-fact">
+              <span class="meta-label">Screenshot status</span>
+              <strong>Awaiting real app screenshots</strong>
+            </div>
+          </div>
+        </div>
+        <div class="atlas-phone-slot">
+          <div>
+            <strong>Atlas screenshot slot</strong>
+            <span>Caleb will provide real iPhone screenshots. This site intentionally does not fake app screens.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-white">
+      <div class="wrap case-layout">
+        <aside class="case-sidebar">
+          <nav class="case-nav-card" aria-label="Case study sections">
+            <a href="#overview">Overview</a>
+            <a href="#problem">Problem</a>
+            <a href="#product">Product</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#strategy">Product strategy</a>
+            <a href="#screenshots">Screenshots</a>
+          </nav>
+        </aside>
+
+        <div class="case-content">
+          <section class="case-section" id="overview">
+            <h2>Overview</h2>
+            <p>Atlas helps users build a personal map of where they have actually been through manual visit logging,
+              photo metadata import, trips, wishlist items, goals, stats, country and state coverage, heatmaps,
+              shareable cards, widgets, and backup/export tools.</p>
+          </section>
+
+          <section class="case-section" id="problem">
+            <h2>The Problem</h2>
+            <p>Most travel tracking products either require cloud accounts, emphasize social sharing, or fail to make a
+              user's own travel history feel useful and beautiful. Atlas treats private travel history as the product,
+              not as content for a feed.</p>
+          </section>
+
+          <section class="case-section" id="product">
+            <h2>The Product</h2>
+            <p>Atlas centers on fast onboarding to a useful, personalized travel map. The core workflows include:</p>
+            <ul>
+              <li>Manual visit logging for places the user has actually been.</li>
+              <li>Photo metadata import for building history from existing photos.</li>
+              <li>Trips, wishlist items, goals, stats, country and state coverage, and heatmaps.</li>
+              <li>Shareable cards and widgets for lightweight output without making the app social-first.</li>
+              <li>Backup and export tools so users keep control of their own data.</li>
+            </ul>
+          </section>
+
+          <section class="case-section" id="privacy">
+            <h2>Privacy As Product Strategy</h2>
+            <p>Atlas is designed around a simple privacy position: users should be able to build a beautiful personal
+              travel map without creating an account or sending their travel history to a cloud service by default.
+              Privacy is not only a compliance concern here. It is part of why the product should feel trustworthy.</p>
+          </section>
+
+          <section class="case-section" id="architecture">
+            <h2>Technical Architecture</h2>
+            <p>The product is built with modern Apple technologies and a local-first model.</p>
+            <ul>
+              <li>SwiftUI for the app interface.</li>
+              <li>SwiftData for local persistence.</li>
+              <li>No account required for the core experience.</li>
+              <li>Map visualization, coverage stats, heatmaps, widgets, imports, exports, and backup flows.</li>
+              <li>Architecture shaped around privacy, speed, offline usefulness, and data ownership.</li>
+            </ul>
+          </section>
+
+          <section class="case-section" id="strategy">
+            <h2>Free Tier And Atlas Pro</h2>
+            <p>The product centers on a useful free tier with Atlas Pro unlocks for premium visualization, comparison,
+              widgets, and exports. The business model should not punish the basic human need to remember where you
+              have been. Pro features add depth for people who want richer maps, outputs, and analysis.</p>
+          </section>
+
+          <section class="case-section" id="screenshots">
+            <h2>Screenshot Placeholders</h2>
+            <div class="screenshot-grid">
+              <div class="atlas-phone-slot">
+                <div>
+                  <strong>Map overview</strong>
+                  <span>Replace with real Atlas map screenshot.</span>
+                </div>
+              </div>
+              <div class="atlas-phone-slot">
+                <div>
+                  <strong>Trip or stats view</strong>
+                  <span>Replace with real Atlas screenshot.</span>
+                </div>
+              </div>
+            </div>
+            <p class="image-caption">Atlas screenshots should be added only after Caleb provides real app images. Do
+              not generate mock app screenshots for this case study.</p>
+          </section>
+
+          <section class="case-section">
+            <h2>What This Demonstrates</h2>
+            <p>Atlas shows consumer product thinking, privacy-first architecture, modern iOS implementation, and the
+              ability to turn a personal data problem into a focused product experience.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-shell">
+      <div>
+        <strong>Caleb Stammen</strong>
+        <span>Secure software and AI. Coldwater, Ohio. Open to remote and hybrid roles.</span>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/projects/">Projects</a>
+        <a href="/credentials/">Credentials</a>
+        <a href="/resume/">Resume</a>
+        <a href="https://www.linkedin.com/in/calebstammen/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/calebstammen" target="_blank" rel="noopener">GitHub</a>
+        <span>&copy; <span data-year></span></span>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+
+</html>
