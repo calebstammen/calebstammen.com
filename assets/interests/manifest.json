@@ -1,0 +1,142 @@
+{
+  "images": [
+    {
+      "src": "/assets/interests/beach-sunset-shoreline.jpg",
+      "alt": "Beach shoreline at sunset",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/eiffel-tower-night-close.jpg",
+      "alt": "Eiffel Tower lit at night",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/hollywood-beach-family-pic.jpg",
+      "alt": "Group gathered near a Hollywood Beach sign",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/lake-cliff-sunset.jpg",
+      "alt": "Rocky lakeshore cliff at sunset",
+      "width": 2400,
+      "height": 1350
+    },
+    {
+      "src": "/assets/interests/mountain-lake-overlook.jpg",
+      "alt": "Mountain lake overlook beneath open sky",
+      "width": 1954,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/mountain-ridge-view.jpg",
+      "alt": "Mountain ridge view with layered terrain",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/mountain-trail-hiker.jpg",
+      "alt": "Mountain trail hiker near snow patches",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/notre-dame-exterior.jpg",
+      "alt": "Notre-Dame exterior at sunset",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/notre-dame-interior-organ.jpg",
+      "alt": "Notre-Dame interior with organ and vaulted ceiling",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/ocean-pool-night-view.jpg",
+      "alt": "Oceanfront pool and shoreline at night",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/ornate-hall-interior.jpg",
+      "alt": "Ornate historic hall interior",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/paris-sunset-city-view.jpg",
+      "alt": "Paris city view over the river at sunset",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/parliament-river-dusk.jpg",
+      "alt": "Parliament and Big Ben across the river at dusk",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/RCF-sunset.jpg",
+      "alt": "Red coupe parked near a country road at sunset",
+      "width": 2400,
+      "height": 1350
+    },
+    {
+      "src": "/assets/interests/rocky-cliff-hiker.jpg",
+      "alt": "Hiker standing on a rocky cliff overlook",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/rocky-mountain-overlook.jpg",
+      "alt": "Rocky mountain overlook from a high ridge",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/rocky-trail-hiker.jpg",
+      "alt": "Hiker standing on a rocky trail overlook",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/ski-slope-panorama.jpg",
+      "alt": "Snowy ski slope with mountain views",
+      "width": 2208,
+      "height": 1242
+    },
+    {
+      "src": "/assets/interests/snow-slope-hike.jpg",
+      "alt": "Snowy mountain slope hiking scene",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/snowy-mountain-panorama.jpg",
+      "alt": "Snowy mountain panorama beneath dramatic sky",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/snowy-summit-hiker.jpg",
+      "alt": "Snowy summit hike under a cloudy sky",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/waterfall-hike-wide.jpg",
+      "alt": "Wide waterfall hiking scene with boulders",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/winter-falls-basin.jpg",
+      "alt": "Winter waterfall basin with layered rock",
+      "width": 2400,
+      "height": 1800
+    }
+  ]
+}

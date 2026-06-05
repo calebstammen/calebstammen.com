@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "sync:interests": "node tools/sync-interests.mjs",
+    "watch:interests": "node tools/sync-interests.mjs --watch"
+  }
+}

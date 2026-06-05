@@ -326,13 +326,94 @@
     button.addEventListener("click", copyEmail);
   }
 
-  function initInterestGalleries() {
+  function cacheBustedSource(source) {
+    const separator = source.includes("?") ? "&" : "?";
+    return `${source}${separator}v=${Date.now()}`;
+  }
+
+  function getGalleryImages(payload) {
+    const images = Array.isArray(payload) ? payload : payload?.images;
+    if (!Array.isArray(images)) return [];
+
+    return images.filter((image) => {
+      return (
+        image &&
+        typeof image.src === "string" &&
+        typeof image.alt === "string" &&
+        Number(image.width) > 0 &&
+        Number(image.height) > 0
+      );
+    });
+  }
+
+  async function loadGalleryImages(source) {
+    const response = await fetch(cacheBustedSource(source), { cache: "no-store" });
+    if (!response.ok) throw new Error(`Could not load ${source}`);
+    return getGalleryImages(await response.json());
+  }
+
+  function createGallerySlide(image, index) {
+    const width = Number(image.width);
+    const height = Number(image.height);
+    const slide = document.createElement("button");
+    const img = document.createElement("img");
+
+    slide.className = "gallery-slide";
+    slide.type = "button";
+    slide.setAttribute("data-gallery-slide", "");
+    slide.style.setProperty("--slide-ratio", `${width} / ${height}`);
+
+    img.src = image.src;
+    img.alt = image.alt;
+    img.width = width;
+    img.height = height;
+    img.loading = index === 0 ? "eager" : "lazy";
+
+    slide.appendChild(img);
+    return slide;
+  }
+
+  async function initInterestGalleries() {
     const galleries = document.querySelectorAll("[data-interest-gallery]");
 
     for (const gallery of galleries) {
-      const slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
+      const stage = gallery.querySelector("[data-gallery-stage]");
       const status = gallery.querySelector("[data-gallery-status]");
-      if (slides.length < 2) continue;
+      const source = gallery.getAttribute("data-gallery-source");
+      let slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
+
+      if (stage && source) {
+        try {
+          const images = await loadGalleryImages(source);
+          stage.replaceChildren(...images.map(createGallerySlide));
+          slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
+        } catch {
+          gallery.setAttribute("data-gallery-error", "true");
+          if (status) status.textContent = "Gallery unavailable";
+          continue;
+        }
+      }
+
+      const controls = Array.from(gallery.querySelectorAll("[data-gallery-direction]"));
+      const hasMultipleSlides = slides.length > 1;
+      controls.forEach((control) => {
+        control.hidden = !hasMultipleSlides;
+        control.disabled = !hasMultipleSlides;
+      });
+
+      if (slides.length === 0) {
+        if (status) status.textContent = "Gallery empty";
+        continue;
+      }
+
+      if (slides.length === 1) {
+        slides[0].classList.add("is-active");
+        slides[0].tabIndex = 0;
+        slides[0].setAttribute("aria-hidden", "false");
+        slides[0].setAttribute("aria-label", "Gallery image");
+        if (status) status.textContent = "Image 1 of 1";
+        continue;
+      }
 
       let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
       if (activeIndex < 0) activeIndex = 0;
