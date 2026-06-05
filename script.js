@@ -26,15 +26,52 @@
     if (!context) return;
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const narrowScreen = window.matchMedia("(max-width: 640px)");
+    const coarsePointer = window.matchMedia("(pointer: coarse)");
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const surface = canvas.closest(".clone-hero, .portfolio-band") || canvas.parentElement || canvas;
     let width = 0;
     let height = 0;
     let dpr = 1;
     let frame = 0;
+    let resizeFrame = 0;
     let points = [];
     let pointer = null;
+    let isVisible = false;
+    let configKey = "";
 
-    function createPoint() {
-      const speed = 0.08 + Math.random() * 0.18;
+    function prefersStaticCanvas() {
+      return narrowScreen.matches || coarsePointer.matches;
+    }
+
+    function getConfig() {
+      const isStatic = prefersStaticCanvas();
+      return {
+        areaPerPoint: isStatic ? 22000 : 9200,
+        dprLimit: isStatic ? 1.25 : 2,
+        lineDistance: isStatic ? 92 : 105,
+        lineOpacity: isStatic ? 0.24 : 0.35,
+        maxPoints: isStatic ? 28 : 96,
+        minPoints: isStatic ? 18 : 42,
+        pointOpacity: isStatic ? 0.58 : 0.72,
+        pointerDistance: 135,
+        speedBase: isStatic ? 0 : 0.08,
+        speedRange: isStatic ? 0 : 0.18,
+      };
+    }
+
+    function shouldAnimate() {
+      return isVisible && !reducedMotion.matches && !prefersStaticCanvas();
+    }
+
+    function syncCanvasState(count = points.length) {
+      canvas.dataset.particleMode = reducedMotion.matches || prefersStaticCanvas() ? "static" : "animated";
+      canvas.dataset.particleCount = String(count);
+      canvas.dataset.particleRunning = String(Boolean(frame && shouldAnimate()));
+    }
+
+    function createPoint(config) {
+      const speed = config.speedBase + Math.random() * config.speedRange;
       const angle = Math.random() * Math.PI * 2;
       return {
         x: Math.random() * width,
@@ -47,25 +84,55 @@
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
-      width = Math.max(1, rect.width);
-      height = Math.max(1, rect.height);
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const config = getConfig();
+      const nextWidth = Math.max(1, Math.round(rect.width));
+      const nextHeight = Math.max(1, Math.round(rect.height));
+      const nextDpr = Math.min(window.devicePixelRatio || 1, config.dprLimit);
+      const nextConfigKey = [
+        config.areaPerPoint,
+        config.dprLimit,
+        config.maxPoints,
+        config.minPoints,
+      ].join(":");
+
+      if (
+        points.length &&
+        width === nextWidth &&
+        height === nextHeight &&
+        dpr === nextDpr &&
+        configKey === nextConfigKey
+      ) {
+        draw();
+        scheduleFrame();
+        return;
+      }
+
+      stopFrame();
+      width = nextWidth;
+      height = nextHeight;
+      dpr = nextDpr;
+      configKey = nextConfigKey;
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.min(96, Math.max(42, Math.round((width * height) / 9200)));
-      points = Array.from({ length: count }, createPoint);
+      const count = Math.min(
+        config.maxPoints,
+        Math.max(config.minPoints, Math.round((width * height) / config.areaPerPoint))
+      );
+      points = Array.from({ length: count }, () => createPoint(config));
+      syncCanvasState(count);
       draw();
+      scheduleFrame();
     }
 
-    function drawLine(a, b, maxDistance) {
+    function drawLine(a, b, maxDistance, lineOpacity) {
       const dx = a.x - b.x;
       const dy = a.y - b.y;
       const distance = Math.hypot(dx, dy);
       if (distance > maxDistance) return;
 
-      const alpha = (1 - distance / maxDistance) * 0.35;
+      const alpha = (1 - distance / maxDistance) * lineOpacity;
       context.strokeStyle = `rgba(255,255,255,${alpha})`;
       context.lineWidth = 1;
       context.beginPath();
@@ -85,52 +152,110 @@
     }
 
     function draw() {
+      const config = getConfig();
+      const isStatic = reducedMotion.matches || prefersStaticCanvas();
       context.clearRect(0, 0, width, height);
 
       for (let index = 0; index < points.length; index += 1) {
         const point = points[index];
-        if (!reducedMotion.matches) movePoint(point);
+        if (!isStatic) movePoint(point);
 
         for (let next = index + 1; next < points.length; next += 1) {
-          drawLine(point, points[next], 105);
+          drawLine(point, points[next], config.lineDistance, config.lineOpacity);
         }
 
-        if (pointer) drawLine(point, pointer, 135);
+        if (pointer && !isStatic) {
+          drawLine(point, pointer, config.pointerDistance, config.lineOpacity);
+        }
 
-        context.fillStyle = "rgba(255,255,255,0.72)";
+        context.fillStyle = `rgba(255,255,255,${config.pointOpacity})`;
         context.beginPath();
         context.arc(point.x, point.y, point.r, 0, Math.PI * 2);
         context.fill();
       }
-
-      if (!reducedMotion.matches) {
-        frame = window.requestAnimationFrame(draw);
-      }
     }
 
-    canvas.addEventListener("mousemove", (event) => {
+    function scheduleFrame() {
+      if (frame || !shouldAnimate()) {
+        syncCanvasState();
+        return;
+      }
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        draw();
+        scheduleFrame();
+      });
+      syncCanvasState();
+    }
+
+    function stopFrame() {
+      if (frame) window.cancelAnimationFrame(frame);
+      frame = 0;
+      syncCanvasState();
+    }
+
+    function queueResize() {
+      if (resizeFrame) return;
+      resizeFrame = window.requestAnimationFrame(() => {
+        resizeFrame = 0;
+        resize();
+      });
+    }
+
+    function handlePointerMove(event) {
+      if (!finePointer.matches || prefersStaticCanvas()) return;
       const rect = canvas.getBoundingClientRect();
       pointer = {
         x: event.clientX - rect.left,
         y: event.clientY - rect.top,
       };
-    });
+    }
 
-    canvas.addEventListener("mouseleave", () => {
+    function clearPointer() {
       pointer = null;
-    });
+    }
 
-    window.addEventListener("resize", () => {
-      window.cancelAnimationFrame(frame);
-      resize();
-    });
+    surface.addEventListener("pointermove", handlePointerMove, { passive: true });
+    surface.addEventListener("pointerleave", clearPointer);
 
-    reducedMotion.addEventListener?.("change", () => {
-      window.cancelAnimationFrame(frame);
-      draw();
-    });
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(queueResize);
+      resizeObserver.observe(canvas);
+    } else {
+      window.addEventListener("resize", queueResize, { passive: true });
+    }
 
-    resize();
+    if ("IntersectionObserver" in window) {
+      const visibilityObserver = new IntersectionObserver(
+        (entries) => {
+          const entry = entries.find((item) => item.target === canvas);
+          if (!entry) return;
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            draw();
+            scheduleFrame();
+          } else {
+            stopFrame();
+          }
+        },
+        { threshold: 0.01 }
+      );
+      visibilityObserver.observe(canvas);
+    } else {
+      isVisible = true;
+    }
+
+    function syncCanvasMode() {
+      pointer = null;
+      queueResize();
+    }
+
+    reducedMotion.addEventListener?.("change", syncCanvasMode);
+    narrowScreen.addEventListener?.("change", syncCanvasMode);
+    coarsePointer.addEventListener?.("change", syncCanvasMode);
+    finePointer.addEventListener?.("change", clearPointer);
+
+    queueResize();
   }
 
   initHeroParticles();
