@@ -10,7 +10,7 @@ automation, internal tools, cybersecurity, product ownership, and Stammen Techno
 - Sticky nav with active-section highlighting and skip-link accessibility.
 - Scroll-reveal animations with `prefers-reduced-motion` support.
 - Email copy buttons with toast feedback.
-- No build step: plain HTML, CSS, and JS.
+- No framework build step: plain HTML, CSS, JS, and a small local gallery-manifest sync script.
 
 **Brand palette**
 - Background: `#efe6d6`
@@ -34,9 +34,7 @@ automation, internal tools, cybersecurity, product ownership, and Stammen Techno
 - `assets/` - images, social cards, topo overlay, favicon, and supporting media
 
 **Local Preview**
-Option 1: open `index.html` directly in a browser.
-
-Option 2 (recommended): run a local server from the repo root:
+Run a local server from the repo root:
 ```bash
 python3 -m http.server 5173
 ```
@@ -44,7 +42,15 @@ Then visit `http://localhost:5173`.
 
 **Content Updates**
 - Site copy and sections: edit `index.html`.
-- Photo swaps: replace files in `assets/` and update corresponding `img` tags in `index.html`.
+- Interest gallery photos: add or remove image files in `assets/interests/`, then run:
+```bash
+npm run sync:interests
+```
+- While actively adding/removing interest photos, keep this running in a second terminal so `assets/interests/manifest.json`
+  updates automatically:
+```bash
+npm run watch:interests
+```
 
 ## License
 This project uses a split license:
