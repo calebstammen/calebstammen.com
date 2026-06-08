@@ -13,12 +13,6 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/hollywood-beach-family-pic.jpg",
-      "alt": "Group gathered near a Hollywood Beach sign",
-      "width": 1800,
-      "height": 2400
-    },
-    {
       "src": "/assets/interests/lake-cliff-sunset.jpg",
       "alt": "Rocky lakeshore cliff at sunset",
       "width": 2400,
@@ -37,7 +31,7 @@
       "height": 1800
     },
     {
-      "src": "/assets/interests/mountain-trail-hiker.jpg",
+      "src": "/assets/interests/mountain-trail.jpg",
       "alt": "Mountain trail hiker near snow patches",
       "width": 2400,
       "height": 1800
@@ -85,7 +79,7 @@
       "height": 1350
     },
     {
-      "src": "/assets/interests/rocky-cliff-hiker.jpg",
+      "src": "/assets/interests/rocky-cliff.jpg",
       "alt": "Hiker standing on a rocky cliff overlook",
       "width": 1800,
       "height": 2400
@@ -97,7 +91,7 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/rocky-trail-hiker.jpg",
+      "src": "/assets/interests/rocky-trail.jpg",
       "alt": "Hiker standing on a rocky trail overlook",
       "width": 1800,
       "height": 2400
@@ -121,7 +115,7 @@
       "height": 1800
     },
     {
-      "src": "/assets/interests/snowy-summit-hiker.jpg",
+      "src": "/assets/interests/snowy-summit.jpg",
       "alt": "Snowy summit hike under a cloudy sky",
       "width": 2400,
       "height": 1800

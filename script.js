@@ -362,6 +362,7 @@
     slide.type = "button";
     slide.setAttribute("data-gallery-slide", "");
     slide.style.setProperty("--slide-ratio", `${width} / ${height}`);
+    slide.classList.add(width >= height ? "is-landscape" : "is-portrait");
 
     img.src = image.src;
     img.alt = image.alt;
@@ -422,7 +423,18 @@
         return (index + slides.length) % slides.length;
       }
 
-      function setActive(nextIndex) {
+      let animationTimer = 0;
+
+      function setActive(nextIndex, direction = 0) {
+        if (direction !== 0) {
+          gallery.classList.remove("is-moving-backward", "is-moving-forward");
+          gallery.classList.add(direction > 0 ? "is-moving-forward" : "is-moving-backward");
+          window.clearTimeout(animationTimer);
+          animationTimer = window.setTimeout(() => {
+            gallery.classList.remove("is-moving-backward", "is-moving-forward");
+          }, 520);
+        }
+
         activeIndex = wrapIndex(nextIndex);
         const previousIndex = wrapIndex(activeIndex - 1);
         const nextSlideIndex = wrapIndex(activeIndex + 1);
@@ -459,28 +471,28 @@
         const directionButton = event.target.closest("[data-gallery-direction]");
         if (directionButton) {
           const direction = Number(directionButton.getAttribute("data-gallery-direction")) || 1;
-          setActive(activeIndex + direction);
+          setActive(activeIndex + direction, direction);
           return;
         }
 
         const slide = event.target.closest("[data-gallery-slide]");
         if (!slide) return;
         if (slide.classList.contains("is-prev")) {
-          setActive(activeIndex - 1);
+          setActive(activeIndex - 1, -1);
         } else {
-          setActive(activeIndex + 1);
+          setActive(activeIndex + 1, 1);
         }
       });
 
       gallery.addEventListener("keydown", (event) => {
         if (event.key === "ArrowLeft") {
           event.preventDefault();
-          setActive(activeIndex - 1);
+          setActive(activeIndex - 1, -1);
         }
 
         if (event.key === "ArrowRight") {
           event.preventDefault();
-          setActive(activeIndex + 1);
+          setActive(activeIndex + 1, 1);
         }
       });
 
