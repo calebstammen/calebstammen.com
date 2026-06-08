@@ -1375,15 +1375,16 @@ body.home-clone section[id] {
 }
 
 .intro-statement a {
-  color: var(--clone-ink);
-  text-decoration-color: var(--clone-red);
+  color: var(--clone-blue);
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
   text-decoration-thickness: 0.1em;
   text-underline-offset: 0.12em;
 }
 
 .intro-statement a:hover {
   color: var(--clone-blue);
-  text-decoration-color: var(--clone-blue);
+  text-decoration-color: currentColor;
 }
 
 .portfolio-band {
@@ -1856,25 +1857,49 @@ body.home-clone section[id] {
 
 @keyframes galleryMobileEnterForward {
   from {
-    opacity: 0;
-    transform: translateX(calc(-50% + 22px));
+    opacity: 0.14;
+    transform: translateX(-50%) translateX(108px) scale(0.98);
   }
 
   to {
     opacity: 1;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateX(0) scale(1);
   }
 }
 
 @keyframes galleryMobileEnterBackward {
   from {
-    opacity: 0;
-    transform: translateX(calc(-50% - 22px));
+    opacity: 0.14;
+    transform: translateX(-50%) translateX(-108px) scale(0.98);
   }
 
   to {
     opacity: 1;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateX(0) scale(1);
+  }
+}
+
+@keyframes galleryMobileLeaveForward {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateX(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateX(-108px) scale(0.98);
+  }
+}
+
+@keyframes galleryMobileLeaveBackward {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateX(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateX(108px) scale(0.98);
   }
 }
 
@@ -2118,12 +2143,30 @@ body.home-clone section[id] {
     transform: translateX(-50%);
   }
 
-  .interest-gallery.is-moving-forward .gallery-slide.is-active {
-    animation: galleryMobileEnterForward 360ms ease both;
+  .gallery-slide.gallery-transition-clone {
+    pointer-events: none;
+    z-index: 4;
+    cursor: default;
   }
 
-  .interest-gallery.is-moving-backward .gallery-slide.is-active {
-    animation: galleryMobileEnterBackward 360ms ease both;
+  .gallery-slide.is-entering-forward {
+    animation: galleryMobileEnterForward 520ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    will-change: transform, opacity;
+  }
+
+  .gallery-slide.is-entering-backward {
+    animation: galleryMobileEnterBackward 520ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    will-change: transform, opacity;
+  }
+
+  .gallery-transition-clone.is-leaving-forward {
+    animation: galleryMobileLeaveForward 520ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    will-change: transform, opacity;
+  }
+
+  .gallery-transition-clone.is-leaving-backward {
+    animation: galleryMobileLeaveBackward 520ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    will-change: transform, opacity;
   }
 
   .gallery-control {
