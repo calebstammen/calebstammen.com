@@ -424,15 +424,66 @@
       }
 
       let animationTimer = 0;
+      const mobileGallery = window.matchMedia("(max-width: 640px)");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      function clearMobileTransition() {
+        slides.forEach((slide) => {
+          slide.classList.remove("is-entering-backward", "is-entering-forward");
+        });
+
+        if (stage) {
+          stage.querySelectorAll("[data-gallery-transition-clone]").forEach((clone) => clone.remove());
+        }
+      }
+
+      function createMobileTransitionClone(slide, direction) {
+        if (!slide) return null;
+        const clone = slide.cloneNode(true);
+        if (!(clone instanceof HTMLElement)) return null;
+
+        clone.removeAttribute("data-gallery-slide");
+        clone.setAttribute("data-gallery-transition-clone", "");
+        clone.setAttribute("aria-hidden", "true");
+        clone.tabIndex = -1;
+        if ("disabled" in clone) clone.disabled = true;
+
+        clone.className = "gallery-slide gallery-transition-clone is-active";
+        clone.classList.add(
+          slide.classList.contains("is-landscape") ? "is-landscape" : "is-portrait",
+          direction > 0 ? "is-leaving-forward" : "is-leaving-backward"
+        );
+
+        return clone;
+      }
+
+      function runMobileTransition(previousSlide, nextSlide, direction) {
+        if (!stage || direction === 0 || !mobileGallery.matches || reducedMotion.matches) return;
+
+        const transitionClone = createMobileTransitionClone(previousSlide, direction);
+        clearMobileTransition();
+
+        if (transitionClone) {
+          stage.appendChild(transitionClone);
+        }
+
+        nextSlide.classList.add(direction > 0 ? "is-entering-forward" : "is-entering-backward");
+        window.setTimeout(() => {
+          nextSlide.classList.remove("is-entering-backward", "is-entering-forward");
+          transitionClone?.remove();
+        }, 640);
+      }
 
       function setActive(nextIndex, direction = 0) {
+        const previousSlide = direction === 0 ? null : slides[activeIndex];
+
         if (direction !== 0) {
           gallery.classList.remove("is-moving-backward", "is-moving-forward");
           gallery.classList.add(direction > 0 ? "is-moving-forward" : "is-moving-backward");
           window.clearTimeout(animationTimer);
           animationTimer = window.setTimeout(() => {
             gallery.classList.remove("is-moving-backward", "is-moving-forward");
-          }, 520);
+          }, 640);
         }
 
         activeIndex = wrapIndex(nextIndex);
@@ -462,6 +513,10 @@
 
         if (status) {
           status.textContent = `Image ${activeIndex + 1} of ${slides.length}`;
+        }
+
+        if (direction !== 0) {
+          runMobileTransition(previousSlide, slides[activeIndex], direction);
         }
       }
 
