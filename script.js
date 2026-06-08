@@ -40,32 +40,36 @@
     let isVisible = false;
     let configKey = "";
 
-    function prefersStaticCanvas() {
+    function prefersCompactCanvas() {
       return narrowScreen.matches || coarsePointer.matches;
     }
 
     function getConfig() {
-      const isStatic = prefersStaticCanvas();
+      const isCompact = prefersCompactCanvas();
       return {
-        areaPerPoint: isStatic ? 22000 : 9200,
-        dprLimit: isStatic ? 1.25 : 2,
-        lineDistance: isStatic ? 92 : 105,
-        lineOpacity: isStatic ? 0.24 : 0.35,
-        maxPoints: isStatic ? 28 : 96,
-        minPoints: isStatic ? 18 : 42,
-        pointOpacity: isStatic ? 0.58 : 0.72,
+        areaPerPoint: isCompact ? 22000 : 9200,
+        dprLimit: isCompact ? 1.25 : 2,
+        lineDistance: isCompact ? 92 : 105,
+        lineOpacity: isCompact ? 0.24 : 0.35,
+        maxPoints: isCompact ? 28 : 96,
+        minPoints: isCompact ? 18 : 42,
+        pointOpacity: isCompact ? 0.58 : 0.72,
         pointerDistance: 135,
-        speedBase: isStatic ? 0 : 0.08,
-        speedRange: isStatic ? 0 : 0.18,
+        speedBase: isCompact ? 0.045 : 0.08,
+        speedRange: isCompact ? 0.11 : 0.18,
       };
     }
 
     function shouldAnimate() {
-      return isVisible && !reducedMotion.matches && !prefersStaticCanvas();
+      return isVisible && !reducedMotion.matches;
     }
 
     function syncCanvasState(count = points.length) {
-      canvas.dataset.particleMode = reducedMotion.matches || prefersStaticCanvas() ? "static" : "animated";
+      canvas.dataset.particleMode = reducedMotion.matches
+        ? "static"
+        : prefersCompactCanvas()
+          ? "compact-animated"
+          : "animated";
       canvas.dataset.particleCount = String(count);
       canvas.dataset.particleRunning = String(Boolean(frame && shouldAnimate()));
     }
@@ -153,7 +157,7 @@
 
     function draw() {
       const config = getConfig();
-      const isStatic = reducedMotion.matches || prefersStaticCanvas();
+      const isStatic = reducedMotion.matches;
       context.clearRect(0, 0, width, height);
 
       for (let index = 0; index < points.length; index += 1) {
@@ -203,7 +207,7 @@
     }
 
     function handlePointerMove(event) {
-      if (!finePointer.matches || prefersStaticCanvas()) return;
+      if (!finePointer.matches) return;
       const rect = canvas.getBoundingClientRect();
       pointer = {
         x: event.clientX - rect.left,
