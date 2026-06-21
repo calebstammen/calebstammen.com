@@ -1,50 +1,62 @@
 {
   "images": [
     {
-      "src": "/assets/interests/beach-sunset-shoreline.jpg",
-      "alt": "Gulf shores, AL - shoreline at sunset",
-      "width": 1800,
-      "height": 2400
-    },
-    {
-      "src": "/assets/interests/eiffel-tower-night-close.jpg",
-      "alt": "Eiffel Tower at night",
-      "width": 1800,
-      "height": 2400
-    },
-    {
-      "src": "/assets/interests/lake-cliff-sunset.jpg",
-      "alt": "Put in Bay at sunset",
-      "width": 2400,
-      "height": 1350
-    },
-    {
       "src": "/assets/interests/mountain-lake-overlook.jpg",
       "alt": "Washington mountain lake",
       "width": 1954,
       "height": 2400
     },
     {
-      "src": "/assets/interests/mountain-ridge-view.jpg",
-      "alt": "Great Smokey Mountain National Park",
-      "width": 2400,
-      "height": 1800
-    },
-    {
-      "src": "/assets/interests/mountain-trail.jpg",
-      "alt": "Franconia, NH",
-      "width": 2400,
-      "height": 1800
-    },
-    {
-      "src": "/assets/interests/notre-dame-exterior.jpg",
-      "alt": "Notre-Dame exterior at sunset",
-      "width": 1800,
-      "height": 2400
+      "src": "/assets/interests/roadtrip-coupes.jpg",
+      "alt": "Red Lexus RCF and blue Mustang parked on a road trip stop",
+      "width": 1280,
+      "height": 960
     },
     {
       "src": "/assets/interests/notre-dame-interior-organ.jpg",
       "alt": "Notre-Dame interior",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/ski-slope-panorama.jpg",
+      "alt": "Crystal Mountain",
+      "width": 2208,
+      "height": 1242
+    },
+    {
+      "src": "/assets/interests/beach-sunset-shoreline.jpg",
+      "alt": "Gulf shores, AL - shoreline at sunset",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/forest-trail-closeup.jpg",
+      "alt": "Forest trail close-up on a tree trunk",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "/assets/interests/RCF-sunset.jpg",
+      "alt": "Lexus RCF at sunset",
+      "width": 2400,
+      "height": 1350
+    },
+    {
+      "src": "/assets/interests/mountain-ridge-view.jpg",
+      "alt": "Great Smoky Mountain National Park",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/parliament-river-dusk.jpg",
+      "alt": "Parliament and Big Ben across the river at dusk",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/snow-slope-hike.jpg",
+      "alt": "Franconia Ridge in late November",
       "width": 1800,
       "height": 2400
     },
@@ -55,32 +67,38 @@
       "height": 1800
     },
     {
-      "src": "/assets/interests/ornate-hall-interior.jpg",
-      "alt": "Ornate historic hall interior",
+      "src": "/assets/interests/rocky-cliff.jpg",
+      "alt": "Red River Gorge",
       "width": 1800,
       "height": 2400
     },
     {
-      "src": "/assets/interests/paris-sunset-city-view.jpg",
-      "alt": "Paris city view over the river at sunset",
+      "src": "/assets/interests/eiffel-tower-night-close.jpg",
+      "alt": "Eiffel Tower at night",
       "width": 1800,
       "height": 2400
     },
     {
-      "src": "/assets/interests/parliament-river-dusk.jpg",
-      "alt": "Parliament and Big Ben across the river at dusk",
+      "src": "/assets/interests/red-lexus-rcf-park.jpg",
+      "alt": "Red Lexus RCF parked beside a green park",
+      "width": 1280,
+      "height": 960
+    },
+    {
+      "src": "/assets/interests/waterfall-hike-wide.jpg",
+      "alt": "Waterfall",
       "width": 1800,
       "height": 2400
     },
     {
-      "src": "/assets/interests/RCF-sunset.jpg",
-      "alt": "Lexus RCF at sunset",
+      "src": "/assets/interests/lake-cliff-sunset.jpg",
+      "alt": "Put in Bay at sunset",
       "width": 2400,
       "height": 1350
     },
     {
-      "src": "/assets/interests/rocky-cliff.jpg",
-      "alt": "Red River Gorge",
+      "src": "/assets/interests/ornate-hall-interior.jpg",
+      "alt": "Ornate historic hall interior",
       "width": 1800,
       "height": 2400
     },
@@ -91,44 +109,44 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/rocky-trail.jpg",
-      "alt": "Red River Gorge pt. 2",
-      "width": 1800,
-      "height": 2400
-    },
-    {
-      "src": "/assets/interests/ski-slope-panorama.jpg",
-      "alt": "Crytal Mountain",
-      "width": 2208,
-      "height": 1242
-    },
-    {
-      "src": "/assets/interests/snow-slope-hike.jpg",
-      "alt": "Franconia Ridge in late November",
-      "width": 1800,
-      "height": 2400
-    },
-    {
       "src": "/assets/interests/snowy-mountain-panorama.jpg",
       "alt": "Franconia Ridge beneath dramatic sky",
       "width": 2400,
       "height": 1800
     },
     {
-      "src": "/assets/interests/snowy-summit.jpg",
-      "alt": "Mount Lafayette summit in winter",
+      "src": "/assets/interests/notre-dame-exterior.jpg",
+      "alt": "Notre-Dame exterior at sunset",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/mountain-trail.jpg",
+      "alt": "Franconia, NH",
       "width": 2400,
       "height": 1800
     },
     {
-      "src": "/assets/interests/waterfall-hike-wide.jpg",
-      "alt": "Waterfall",
+      "src": "/assets/interests/paris-sunset-city-view.jpg",
+      "alt": "Paris city view over the river at sunset",
       "width": 1800,
       "height": 2400
     },
     {
       "src": "/assets/interests/winter-falls-basin.jpg",
       "alt": "Winter waterfall basin",
+      "width": 2400,
+      "height": 1800
+    },
+    {
+      "src": "/assets/interests/rocky-trail.jpg",
+      "alt": "Red River Gorge pt. 2",
+      "width": 1800,
+      "height": 2400
+    },
+    {
+      "src": "/assets/interests/snowy-summit.jpg",
+      "alt": "Mount Lafayette summit in winter",
       "width": 2400,
       "height": 1800
     }

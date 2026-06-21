@@ -428,10 +428,16 @@
       }
 
       let animationTimer = 0;
+      let mobileTransitionTimer = 0;
+      let swipeSuppressTimer = 0;
+      let swipeStart = null;
+      let suppressNextClick = false;
       const mobileGallery = window.matchMedia("(max-width: 640px)");
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const swipeThreshold = 44;
 
       function clearMobileTransition() {
+        window.clearTimeout(mobileTransitionTimer);
         slides.forEach((slide) => {
           slide.classList.remove("is-entering-backward", "is-entering-forward");
         });
@@ -472,10 +478,7 @@
         }
 
         nextSlide.classList.add(direction > 0 ? "is-entering-forward" : "is-entering-backward");
-        window.setTimeout(() => {
-          nextSlide.classList.remove("is-entering-backward", "is-entering-forward");
-          transitionClone?.remove();
-        }, 640);
+        mobileTransitionTimer = window.setTimeout(clearMobileTransition, 560);
       }
 
       function setActive(nextIndex, direction = 0) {
@@ -524,7 +527,99 @@
         }
       }
 
+      function isSwipePointer(event) {
+        return mobileGallery.matches && event.isPrimary !== false;
+      }
+
+      function clearSwipe() {
+        swipeStart = null;
+      }
+
+      function startSwipe(id, x, y, target = null) {
+        swipeStart = {
+          id,
+          x,
+          y,
+        };
+
+        if (target instanceof HTMLElement && target.setPointerCapture && typeof id === "number") {
+          try {
+            target.setPointerCapture(id);
+          } catch {
+            // Some browser gesture paths do not allow pointer capture.
+          }
+        }
+      }
+
+      function finishSwipe(id, x, y) {
+        if (!swipeStart || swipeStart.id !== id) return;
+
+        const deltaX = x - swipeStart.x;
+        const deltaY = y - swipeStart.y;
+        clearSwipe();
+
+        if (Math.abs(deltaX) < swipeThreshold || Math.abs(deltaX) < Math.abs(deltaY) * 1.15) return;
+
+        window.clearTimeout(swipeSuppressTimer);
+        suppressNextClick = true;
+        swipeSuppressTimer = window.setTimeout(() => {
+          suppressNextClick = false;
+        }, 350);
+
+        const direction = deltaX < 0 ? 1 : -1;
+        setActive(activeIndex + direction, direction);
+      }
+
+      function handleSwipeStart(event) {
+        if (!isSwipePointer(event)) return;
+        startSwipe(event.pointerId, event.clientX, event.clientY, event.currentTarget);
+      }
+
+      function handleSwipeEnd(event) {
+        finishSwipe(event.pointerId, event.clientX, event.clientY);
+      }
+
+      function handleMouseSwipeStart(event) {
+        if (!mobileGallery.matches || event.button !== 0) return;
+        startSwipe("mouse", event.clientX, event.clientY);
+      }
+
+      function handleMouseSwipeEnd(event) {
+        finishSwipe("mouse", event.clientX, event.clientY);
+      }
+
+      function handleTouchSwipeStart(event) {
+        if (!mobileGallery.matches || event.touches.length === 0) return;
+        const touch = event.touches[0];
+        startSwipe(touch.identifier, touch.clientX, touch.clientY);
+      }
+
+      function handleTouchSwipeEnd(event) {
+        if (!swipeStart) return;
+        const changedTouch = Array.from(event.changedTouches).find((touch) => touch.identifier === swipeStart.id);
+        if (!changedTouch) return;
+        finishSwipe(changedTouch.identifier, changedTouch.clientX, changedTouch.clientY);
+      }
+
+      if (stage) {
+        stage.addEventListener("pointerdown", handleSwipeStart, { passive: true });
+        stage.addEventListener("pointerup", handleSwipeEnd);
+        stage.addEventListener("pointercancel", clearSwipe);
+        stage.addEventListener("pointerleave", clearSwipe);
+        stage.addEventListener("mousedown", handleMouseSwipeStart);
+        stage.addEventListener("mouseup", handleMouseSwipeEnd);
+        stage.addEventListener("touchstart", handleTouchSwipeStart, { passive: true });
+        stage.addEventListener("touchend", handleTouchSwipeEnd);
+        stage.addEventListener("touchcancel", clearSwipe);
+      }
+
       gallery.addEventListener("click", (event) => {
+        if (suppressNextClick) {
+          suppressNextClick = false;
+          event.preventDefault();
+          return;
+        }
+
         if (!(event.target instanceof Element)) return;
 
         const directionButton = event.target.closest("[data-gallery-direction]");

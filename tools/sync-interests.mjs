@@ -9,34 +9,67 @@ const manifestPath = path.join(imageDir, "manifest.json");
 const watchMode = process.argv.includes("--watch");
 const supportedExtensions = new Set([".avif", ".jpeg", ".jpg", ".png", ".webp"]);
 
+const galleryOrder = [
+  "mountain-lake-overlook.jpg",
+  "roadtrip-coupes.jpg",
+  "notre-dame-interior-organ.jpg",
+  "ski-slope-panorama.jpg",
+  "beach-sunset-shoreline.jpg",
+  "forest-trail-closeup.jpg",
+  "RCF-sunset.jpg",
+  "mountain-ridge-view.jpg",
+  "parliament-river-dusk.jpg",
+  "snow-slope-hike.jpg",
+  "ocean-pool-night-view.jpg",
+  "rocky-cliff.jpg",
+  "eiffel-tower-night-close.jpg",
+  "red-lexus-rcf-park.jpg",
+  "waterfall-hike-wide.jpg",
+  "lake-cliff-sunset.jpg",
+  "ornate-hall-interior.jpg",
+  "rocky-mountain-overlook.jpg",
+  "snowy-mountain-panorama.jpg",
+  "notre-dame-exterior.jpg",
+  "mountain-trail.jpg",
+  "paris-sunset-city-view.jpg",
+  "winter-falls-basin.jpg",
+  "rocky-trail.jpg",
+  "snowy-summit.jpg",
+];
+
+const galleryOrderIndex = new Map(galleryOrder.map((file, index) => [file, index]));
+
 const altOverrides = new Map([
-  ["RCF-sunset.jpg", "Red coupe parked near a country road at sunset"],
-  ["beach-sunset-shoreline.jpg", "Beach shoreline at sunset"],
-  ["eiffel-tower-night-close.jpg", "Eiffel Tower lit at night"],
+  ["RCF-sunset.jpg", "Lexus RCF at sunset"],
+  ["beach-sunset-shoreline.jpg", "Gulf shores, AL - shoreline at sunset"],
+  ["eiffel-tower-night-close.jpg", "Eiffel Tower at night"],
+  ["forest-trail-closeup.jpg", "Forest trail close-up on a tree trunk"],
   ["hollywood-beach-family-pic.jpg", "Group gathered near a Hollywood Beach sign"],
-  ["lake-cliff-sunset.jpg", "Rocky lakeshore cliff at sunset"],
-  ["mountain-lake-overlook.jpg", "Mountain lake overlook beneath open sky"],
-  ["mountain-ridge-view.jpg", "Mountain ridge view with layered terrain"],
-  ["mountain-trail.jpg", "Mountain trail hiker near snow patches"],
-  ["mountain-trail-hiker.jpg", "Mountain trail hiker near snow patches"],
+  ["lake-cliff-sunset.jpg", "Put in Bay at sunset"],
+  ["mountain-lake-overlook.jpg", "Washington mountain lake"],
+  ["mountain-ridge-view.jpg", "Great Smoky Mountain National Park"],
+  ["mountain-trail.jpg", "Franconia, NH"],
+  ["mountain-trail-hiker.jpg", "Franconia, NH"],
   ["notre-dame-exterior.jpg", "Notre-Dame exterior at sunset"],
-  ["notre-dame-interior-organ.jpg", "Notre-Dame interior with organ and vaulted ceiling"],
-  ["ocean-pool-night-view.jpg", "Oceanfront pool and shoreline at night"],
+  ["notre-dame-interior-organ.jpg", "Notre-Dame interior"],
+  ["ocean-pool-night-view.jpg", "Leela Kovalam in Kerala, India"],
   ["ornate-hall-interior.jpg", "Ornate historic hall interior"],
   ["paris-sunset-city-view.jpg", "Paris city view over the river at sunset"],
   ["parliament-river-dusk.jpg", "Parliament and Big Ben across the river at dusk"],
-  ["rocky-cliff.jpg", "Hiker standing on a rocky cliff overlook"],
-  ["rocky-cliff-hiker.jpg", "Hiker standing on a rocky cliff overlook"],
-  ["rocky-mountain-overlook.jpg", "Rocky mountain overlook from a high ridge"],
-  ["rocky-trail.jpg", "Hiker standing on a rocky trail overlook"],
-  ["rocky-trail-hiker.jpg", "Hiker standing on a rocky trail overlook"],
-  ["ski-slope-panorama.jpg", "Snowy ski slope with mountain views"],
-  ["snow-slope-hike.jpg", "Snowy mountain slope hiking scene"],
-  ["snowy-mountain-panorama.jpg", "Snowy mountain panorama beneath dramatic sky"],
-  ["snowy-summit.jpg", "Snowy summit hike under a cloudy sky"],
-  ["snowy-summit-hiker.jpg", "Snowy summit hike under a cloudy sky"],
-  ["waterfall-hike-wide.jpg", "Wide waterfall hiking scene with boulders"],
-  ["winter-falls-basin.jpg", "Winter waterfall basin with layered rock"],
+  ["red-lexus-rcf-park.jpg", "Red Lexus RCF parked beside a green park"],
+  ["roadtrip-coupes.jpg", "Red Lexus RCF and blue Mustang parked on a road trip stop"],
+  ["rocky-cliff.jpg", "Red River Gorge"],
+  ["rocky-cliff-hiker.jpg", "Red River Gorge"],
+  ["rocky-mountain-overlook.jpg", "Chimney Peak, WV"],
+  ["rocky-trail.jpg", "Red River Gorge pt. 2"],
+  ["rocky-trail-hiker.jpg", "Red River Gorge pt. 2"],
+  ["ski-slope-panorama.jpg", "Crystal Mountain"],
+  ["snow-slope-hike.jpg", "Franconia Ridge in late November"],
+  ["snowy-mountain-panorama.jpg", "Franconia Ridge beneath dramatic sky"],
+  ["snowy-summit.jpg", "Mount Lafayette summit in winter"],
+  ["snowy-summit-hiker.jpg", "Mount Lafayette summit in winter"],
+  ["waterfall-hike-wide.jpg", "Waterfall"],
+  ["winter-falls-basin.jpg", "Winter waterfall basin"],
 ]);
 
 function titleCase(value) {
@@ -65,12 +98,20 @@ function getDimensions(filePath) {
   return { width, height };
 }
 
+function compareImageNames(left, right) {
+  const leftIndex = galleryOrderIndex.get(left) ?? Number.MAX_SAFE_INTEGER;
+  const rightIndex = galleryOrderIndex.get(right) ?? Number.MAX_SAFE_INTEGER;
+
+  if (leftIndex !== rightIndex) return leftIndex - rightIndex;
+  return left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" });
+}
+
 function listImages() {
   if (!existsSync(imageDir)) return [];
 
   return readdirSync(imageDir)
     .filter((file) => supportedExtensions.has(path.extname(file).toLowerCase()))
-    .sort((left, right) => left.localeCompare(right, undefined, { numeric: true, sensitivity: "base" }));
+    .sort(compareImageNames);
 }
 
 export function syncInterests() {
