@@ -651,6 +651,9 @@
           id,
           x,
           y,
+          lastX: x,
+          lastY: y,
+          moved: false,
         };
 
         if (target instanceof HTMLElement && target.setPointerCapture && typeof id === "number") {
@@ -662,13 +665,22 @@
         }
       }
 
-      function finishSwipe(id, x, y) {
+      function moveSwipe(id, x, y) {
+        if (!swipeStart || swipeStart.id !== id) return;
+        swipeStart.lastX = x;
+        swipeStart.lastY = y;
+        swipeStart.moved = true;
+      }
+
+      function finishSwipe(id) {
         if (!swipeStart || swipeStart.id !== id) return;
 
-        const deltaX = x - swipeStart.x;
-        const deltaY = y - swipeStart.y;
+        const deltaX = swipeStart.lastX - swipeStart.x;
+        const deltaY = swipeStart.lastY - swipeStart.y;
+        const moved = swipeStart.moved;
         clearSwipe();
 
+        if (!moved) return;
         if (Math.abs(deltaX) < swipeThreshold || Math.abs(deltaX) < Math.abs(deltaY) * 1.15) return;
 
         window.clearTimeout(swipeSuppressTimer);
@@ -687,7 +699,11 @@
       }
 
       function handleSwipeEnd(event) {
-        finishSwipe(event.pointerId, event.clientX, event.clientY);
+        finishSwipe(event.pointerId);
+      }
+
+      function handleSwipeMove(event) {
+        moveSwipe(event.pointerId, event.clientX, event.clientY);
       }
 
       function handleMouseSwipeStart(event) {
@@ -696,7 +712,11 @@
       }
 
       function handleMouseSwipeEnd(event) {
-        finishSwipe("mouse", event.clientX, event.clientY);
+        finishSwipe("mouse");
+      }
+
+      function handleMouseSwipeMove(event) {
+        moveSwipe("mouse", event.clientX, event.clientY);
       }
 
       function handleTouchSwipeStart(event) {
@@ -709,19 +729,29 @@
         if (!swipeStart) return;
         const changedTouch = Array.from(event.changedTouches).find((touch) => touch.identifier === swipeStart.id);
         if (!changedTouch) return;
-        finishSwipe(changedTouch.identifier, changedTouch.clientX, changedTouch.clientY);
+        finishSwipe(changedTouch.identifier);
+      }
+
+      function handleTouchSwipeMove(event) {
+        if (!swipeStart) return;
+        const touch = Array.from(event.touches).find((item) => item.identifier === swipeStart.id);
+        if (!touch) return;
+        moveSwipe(touch.identifier, touch.clientX, touch.clientY);
       }
 
       if (stage) {
         if ("PointerEvent" in window) {
           stage.addEventListener("pointerdown", handleSwipeStart, { passive: true });
+          stage.addEventListener("pointermove", handleSwipeMove, { passive: true });
           stage.addEventListener("pointerup", handleSwipeEnd);
           stage.addEventListener("pointercancel", clearSwipe);
           stage.addEventListener("pointerleave", clearSwipe);
         } else {
           stage.addEventListener("mousedown", handleMouseSwipeStart);
+          stage.addEventListener("mousemove", handleMouseSwipeMove);
           stage.addEventListener("mouseup", handleMouseSwipeEnd);
           stage.addEventListener("touchstart", handleTouchSwipeStart, { passive: true });
+          stage.addEventListener("touchmove", handleTouchSwipeMove, { passive: true });
           stage.addEventListener("touchend", handleTouchSwipeEnd);
           stage.addEventListener("touchcancel", clearSwipe);
         }
