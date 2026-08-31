@@ -422,17 +422,115 @@
         continue;
       }
 
+      let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
+      if (activeIndex < 0) activeIndex = 0;
+
+      const viewer = document.createElement("div");
+      viewer.className = "gallery-viewer";
+      viewer.setAttribute("data-gallery-viewer", "");
+      viewer.setAttribute("role", "dialog");
+      viewer.setAttribute("aria-modal", "true");
+      viewer.setAttribute("aria-label", "Fullscreen photo viewer");
+      viewer.hidden = true;
+      viewer.innerHTML = `
+        <button class="gallery-viewer-close" type="button" data-gallery-viewer-close aria-label="Close fullscreen photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        <button class="gallery-viewer-control gallery-viewer-prev" type="button" data-gallery-viewer-direction="-1" aria-label="Show previous fullscreen photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" /></svg>
+        </button>
+        <figure class="gallery-viewer-figure">
+          <img data-gallery-viewer-image alt="">
+          <figcaption data-gallery-viewer-count></figcaption>
+        </figure>
+        <button class="gallery-viewer-control gallery-viewer-next" type="button" data-gallery-viewer-direction="1" aria-label="Show next fullscreen photo">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7" /></svg>
+        </button>`;
+      document.body.appendChild(viewer);
+
+      const viewerImage = viewer.querySelector("[data-gallery-viewer-image]");
+      const viewerCount = viewer.querySelector("[data-gallery-viewer-count]");
+      const viewerClose = viewer.querySelector("[data-gallery-viewer-close]");
+      const viewerControls = Array.from(viewer.querySelectorAll("[data-gallery-viewer-direction]"));
+      let viewerIndex = activeIndex;
+      let viewerReturnFocus = null;
+      let viewerSwipeStart = null;
+
+      function renderViewer(index) {
+        viewerIndex = (index + slides.length) % slides.length;
+        const sourceImage = slides[viewerIndex].querySelector("img");
+        if (!sourceImage || !viewerImage) return;
+        viewerImage.src = sourceImage.currentSrc || sourceImage.src;
+        viewerImage.alt = sourceImage.alt;
+        if (viewerCount) viewerCount.textContent = `${viewerIndex + 1} / ${slides.length}`;
+      }
+
+      function openViewer(index) {
+        viewerReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+        renderViewer(index);
+        viewer.hidden = false;
+        document.body.classList.add("gallery-viewer-open");
+        viewerClose?.focus();
+      }
+
+      function closeViewer() {
+        if (viewer.hidden) return;
+        viewer.hidden = true;
+        document.body.classList.remove("gallery-viewer-open");
+        viewerReturnFocus?.focus();
+      }
+
+      viewerControls.forEach((control) => {
+        control.hidden = slides.length < 2;
+        control.addEventListener("click", () => {
+          renderViewer(viewerIndex + Number(control.getAttribute("data-gallery-viewer-direction")));
+        });
+      });
+      viewerClose?.addEventListener("click", closeViewer);
+      viewer.addEventListener("click", (event) => {
+        if (event.target === viewer) closeViewer();
+      });
+      viewer.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeViewer();
+        if (event.key === "ArrowLeft") renderViewer(viewerIndex - 1);
+        if (event.key === "ArrowRight") renderViewer(viewerIndex + 1);
+        if (event.key === "Tab") {
+          const focusable = [viewerClose, ...viewerControls].filter((element) => element && !element.hidden);
+          if (focusable.length === 0) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+      });
+      viewer.addEventListener("pointerdown", (event) => {
+        viewerSwipeStart = { id: event.pointerId, x: event.clientX, y: event.clientY };
+      }, { passive: true });
+      viewer.addEventListener("pointerup", (event) => {
+        if (!viewerSwipeStart || viewerSwipeStart.id !== event.pointerId) return;
+        const deltaX = event.clientX - viewerSwipeStart.x;
+        const deltaY = event.clientY - viewerSwipeStart.y;
+        viewerSwipeStart = null;
+        if (slides.length > 1 && Math.abs(deltaX) >= 44 && Math.abs(deltaX) > Math.abs(deltaY) * 1.15) {
+          renderViewer(viewerIndex + (deltaX < 0 ? 1 : -1));
+        }
+      });
+      viewer.addEventListener("pointercancel", () => { viewerSwipeStart = null; });
+
       if (slides.length === 1) {
         slides[0].classList.add("is-active");
         slides[0].tabIndex = 0;
         slides[0].setAttribute("aria-hidden", "false");
-        slides[0].setAttribute("aria-label", "Gallery image");
+        slides[0].setAttribute("aria-label", "Open image fullscreen");
+        slides[0].addEventListener("click", () => openViewer(0));
         if (status) status.textContent = "Image 1 of 1";
         continue;
       }
-
-      let activeIndex = slides.findIndex((slide) => slide.classList.contains("is-active"));
-      if (activeIndex < 0) activeIndex = 0;
 
       function wrapIndex(index) {
         return (index + slides.length) % slides.length;
@@ -522,8 +620,10 @@
 
           if (isPrevious) {
             slide.setAttribute("aria-label", "Show previous image");
-          } else if (isNext || isActive) {
+          } else if (isNext) {
             slide.setAttribute("aria-label", "Show next image");
+          } else if (isActive) {
+            slide.setAttribute("aria-label", "Open image fullscreen");
           } else {
             slide.setAttribute("aria-label", "Gallery image");
           }
@@ -644,6 +744,8 @@
         if (!slide) return;
         if (slide.classList.contains("is-prev")) {
           setActive(activeIndex - 1, -1);
+        } else if (slide.classList.contains("is-active")) {
+          openViewer(activeIndex);
         } else {
           setActive(activeIndex + 1, 1);
         }
