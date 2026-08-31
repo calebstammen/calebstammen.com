@@ -713,15 +713,18 @@
       }
 
       if (stage) {
-        stage.addEventListener("pointerdown", handleSwipeStart, { passive: true });
-        stage.addEventListener("pointerup", handleSwipeEnd);
-        stage.addEventListener("pointercancel", clearSwipe);
-        stage.addEventListener("pointerleave", clearSwipe);
-        stage.addEventListener("mousedown", handleMouseSwipeStart);
-        stage.addEventListener("mouseup", handleMouseSwipeEnd);
-        stage.addEventListener("touchstart", handleTouchSwipeStart, { passive: true });
-        stage.addEventListener("touchend", handleTouchSwipeEnd);
-        stage.addEventListener("touchcancel", clearSwipe);
+        if ("PointerEvent" in window) {
+          stage.addEventListener("pointerdown", handleSwipeStart, { passive: true });
+          stage.addEventListener("pointerup", handleSwipeEnd);
+          stage.addEventListener("pointercancel", clearSwipe);
+          stage.addEventListener("pointerleave", clearSwipe);
+        } else {
+          stage.addEventListener("mousedown", handleMouseSwipeStart);
+          stage.addEventListener("mouseup", handleMouseSwipeEnd);
+          stage.addEventListener("touchstart", handleTouchSwipeStart, { passive: true });
+          stage.addEventListener("touchend", handleTouchSwipeEnd);
+          stage.addEventListener("touchcancel", clearSwipe);
+        }
       }
 
       gallery.addEventListener("click", (event) => {
