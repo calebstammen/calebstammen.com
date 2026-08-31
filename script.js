@@ -639,7 +639,7 @@
       }
 
       function isSwipePointer(event) {
-        return mobileGallery.matches && event.isPrimary !== false;
+        return mobileGallery.matches && event.isPrimary !== false && event.pointerType !== "mouse";
       }
 
       function clearSwipe() {
