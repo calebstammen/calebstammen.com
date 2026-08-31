@@ -350,6 +350,17 @@
     });
   }
 
+  function shuffleGalleryImages(images) {
+    const shuffled = [...images];
+
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+    }
+
+    return shuffled;
+  }
+
   async function loadGalleryImages(source) {
     const response = await fetch(cacheBustedSource(source), { cache: "no-store" });
     if (!response.ok) throw new Error(`Could not load ${source}`);
@@ -389,7 +400,7 @@
 
       if (stage && source) {
         try {
-          const images = await loadGalleryImages(source);
+          const images = shuffleGalleryImages(await loadGalleryImages(source));
           stage.replaceChildren(...images.map(createGallerySlide));
           slides = Array.from(gallery.querySelectorAll("[data-gallery-slide]"));
         } catch {

@@ -7,20 +7,14 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/roadtrip-coupes.jpg",
-      "alt": "Red Lexus RCF and blue Mustang parked on a road trip stop",
-      "width": 1280,
-      "height": 960
-    },
-    {
       "src": "/assets/interests/notre-dame-interior-organ.jpg",
       "alt": "Notre-Dame interior",
       "width": 1800,
       "height": 2400
     },
     {
-      "src": "/assets/interests/ski-slope-panorama.jpg",
-      "alt": "Crystal Mountain",
+      "src": "/assets/interests/crystal-mountain-ski-slope-panorama.jpg",
+      "alt": "Crystal Mountain ski slope panorama",
       "width": 2208,
       "height": 1242
     },
@@ -31,20 +25,14 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/forest-trail-closeup.jpg",
-      "alt": "Forest trail close-up on a tree trunk",
-      "width": 720,
-      "height": 1280
-    },
-    {
       "src": "/assets/interests/RCF-sunset.jpg",
       "alt": "Lexus RCF at sunset",
       "width": 2400,
       "height": 1350
     },
     {
-      "src": "/assets/interests/mountain-ridge-view.jpg",
-      "alt": "Great Smoky Mountain National Park",
+      "src": "/assets/interests/mountain-leconte.jpg",
+      "alt": "Mount LeConte in Great Smoky Mountains National Park",
       "width": 2400,
       "height": 1800
     },
@@ -61,8 +49,8 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/ocean-pool-night-view.jpg",
-      "alt": "Leela Kovalam in Kerala, India",
+      "src": "/assets/interests/arabian-sea-night-view.jpg",
+      "alt": "Arabian Sea and resort pool at night",
       "width": 2400,
       "height": 1800
     },
@@ -73,16 +61,10 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/eiffel-tower-night-close.jpg",
+      "src": "/assets/interests/eiffel-tower-night.jpg",
       "alt": "Eiffel Tower at night",
       "width": 1800,
       "height": 2400
-    },
-    {
-      "src": "/assets/interests/red-lexus-rcf-park.jpg",
-      "alt": "Red Lexus RCF parked beside a green park",
-      "width": 1280,
-      "height": 960
     },
     {
       "src": "/assets/interests/waterfall-hike-wide.jpg",
@@ -109,8 +91,8 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/snowy-mountain-panorama.jpg",
-      "alt": "Franconia Ridge beneath dramatic sky",
+      "src": "/assets/interests/winter-hike-franconia-ridge.jpg",
+      "alt": "Winter hike across Franconia Ridge beneath dramatic sky",
       "width": 2400,
       "height": 1800
     },
@@ -121,14 +103,14 @@
       "height": 2400
     },
     {
-      "src": "/assets/interests/mountain-trail.jpg",
-      "alt": "Franconia, NH",
+      "src": "/assets/interests/franconia-ridge.jpg",
+      "alt": "Franconia Ridge, New Hampshire",
       "width": 2400,
       "height": 1800
     },
     {
-      "src": "/assets/interests/paris-sunset-city-view.jpg",
-      "alt": "Paris city view over the river at sunset",
+      "src": "/assets/interests/eiffle-tower-sunset-city-view.jpg",
+      "alt": "Paris city view toward the Eiffel Tower at sunset",
       "width": 1800,
       "height": 2400
     },
@@ -139,8 +121,8 @@
       "height": 1800
     },
     {
-      "src": "/assets/interests/rocky-trail.jpg",
-      "alt": "Red River Gorge pt. 2",
+      "src": "/assets/interests/red-river-gorge-trail.jpg",
+      "alt": "Trail through Red River Gorge",
       "width": 1800,
       "height": 2400
     },
@@ -149,6 +131,264 @@
       "alt": "Mount Lafayette summit in winter",
       "width": 2400,
       "height": 1800
+    },
+    {
+      "src": "/assets/interests/alpine-canyon-pines.jpg",
+      "alt": "Pine trees and granite walls in an alpine canyon",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/alpine-stream-and-wildflowers.jpg",
+      "alt": "Alpine stream flowing past wildflowers and granite boulders",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/angels-landing.png",
+      "alt": "Angels Landing rising above Zion Canyon",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "/assets/interests/arches-desert-sunrise.jpg",
+      "alt": "Sunrise above the Arches desert",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/balanced-rock.jpg",
+      "alt": "Balanced Rock beneath a clear Utah sky",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/bighorn-sheep-in-meadow.png",
+      "alt": "Bighorn sheep standing in a dry meadow",
+      "width": 476,
+      "height": 787
+    },
+    {
+      "src": "/assets/interests/bryce-canyon-hoodoos.jpg",
+      "alt": "Dense hoodoos across Bryce Canyon",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/bryce-canyon-sunset.jpg",
+      "alt": "Bryce Canyon hoodoos in the evening light",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/canyonlands-and-la-sal-mountains.jpg",
+      "alt": "Canyonlands mesas beneath the La Sal Mountains",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/delicate-arch-wide-view.jpg",
+      "alt": "Delicate Arch above the Utah desert",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/delicate-arch-with-me.jpg",
+      "alt": "Person standing beneath Delicate Arch",
+      "width": 2048,
+      "height": 1151
+    },
+    {
+      "src": "/assets/interests/desert-petroglyph-panel.jpg",
+      "alt": "Petroglyph figures carved into a desert rock panel",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/dinosaur-track-fossil.jpg",
+      "alt": "Fossilized dinosaur track preserved in stone",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/double-arch-skyward-view.jpg",
+      "alt": "Skyward view through the openings of Double Arch",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/forest-lake-overlook.jpg",
+      "alt": "Forest lake viewed from a high mountain slope",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/forest-river-bend.jpg",
+      "alt": "River bending through a dense mountain forest",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/forest-trail-millipede.jpg",
+      "alt": "Millipede crossing a forest trail",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "/assets/interests/grand-teton-campsite.jpg",
+      "alt": "Orange backpacking tent facing the Grand Teton range",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/grand-teton-pastel-sunrise.jpg",
+      "alt": "Pastel sunrise across the Grand Teton range",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/grand-teton-sunrise.jpg",
+      "alt": "Sunrise over the Grand Teton range",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/landscape-arch.jpg",
+      "alt": "Landscape Arch spanning a sunlit Utah sandstone ridge",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/moose-family.jpg",
+      "alt": "Moose and two calves feeding among willows",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/mountain-lake-swim.jpg",
+      "alt": "Swimmer crossing a mountain lake beneath granite peaks",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/mountain-meadow-sunrise.jpg",
+      "alt": "Fiery sunrise above a mountain meadow",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/mountain-timpanagos-cirque-under-clouds.jpg",
+      "alt": "Mount Timpanogos cirque beneath low clouds",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/red-rock-monoliths-golden-hour.jpg",
+      "alt": "Red rock monoliths in the Utah desert at golden hour",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/rocky-alpine-valley-overlook.jpg",
+      "alt": "Rocky alpine valley descending toward distant lakes",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/rocky-teton-pass.jpg",
+      "alt": "Rock-strewn pass between steep Teton walls",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/sundance-mountain-resort-at-dusk.jpg",
+      "alt": "Sundance Mountain Resort glowing at dusk",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/sundance-mountain-resort-courtyard.jpg",
+      "alt": "Timber courtyard at Sundance Mountain Resort",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/teton-alpine-pass.jpg",
+      "alt": "Granite walls and talus descending from a Teton alpine pass",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/teton-alpine-ridge-dad-selfie.jpg",
+      "alt": "Backpacker on a high Teton ridge above snowfields",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/teton-snowfield-ridge.jpg",
+      "alt": "Snowfields below a rugged Teton ridgeline",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/teton-sunset-over-forest.jpg",
+      "alt": "Grand Teton silhouette above the forest at sunset",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/utah-arch-sunset-window.jpg",
+      "alt": "Desert sunset framed by a sandstone arch",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/utah-desert-factory-butte.jpg",
+      "alt": "Factory Butte beneath towering summer clouds",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/utah-red-rock-strata.jpg",
+      "alt": "Layered red rock strata across a Utah desert wall",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/wasatch-mountain-valley-clouds.jpg",
+      "alt": "Wasatch mountain valley beneath dramatic clouds",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/waterfall-sundance.jpg",
+      "alt": "Waterfall descending through a layered Utah canyon",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/zion-canyon-overlook-sunset.jpg",
+      "alt": "Zion Canyon overlook at sunset",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/zion-canyon-overlook.jpg",
+      "alt": "Zion Canyon viewed from a high sandstone overlook",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/zion-milky-way.jpg",
+      "alt": "Milky Way crossing the night sky above Zion",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/assets/interests/zion-narrows-river-canyon.jpg",
+      "alt": "River flowing between the towering walls of the Zion Narrows",
+      "width": 1152,
+      "height": 2048
     }
   ]
 }
