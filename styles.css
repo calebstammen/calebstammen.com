@@ -1874,8 +1874,13 @@ body.gallery-viewer-open {
   z-index: 1000;
   display: grid;
   grid-template-columns: minmax(52px, 1fr) minmax(0, 12fr) minmax(52px, 1fr);
+  grid-template-rows: minmax(0, 1fr);
   align-items: center;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
   padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  box-sizing: border-box;
   background: rgba(12, 17, 22, 0.96);
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
@@ -1883,27 +1888,35 @@ body.gallery-viewer-open {
 
 .gallery-viewer-figure {
   display: grid;
+  grid-template-rows: minmax(0, 1fr) 28px;
+  width: 100%;
   min-width: 0;
-  height: calc(100vh - max(40px, env(safe-area-inset-top)) - max(40px, env(safe-area-inset-bottom)));
-  height: calc(100dvh - max(40px, env(safe-area-inset-top)) - max(40px, env(safe-area-inset-bottom)));
+  height: 100%;
+  min-height: 0;
   margin: 0;
-  place-items: center;
+  overflow: hidden;
 }
 
 .gallery-viewer-figure img {
-  grid-area: 1 / 1;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  justify-self: stretch;
   display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: calc(100% - 36px);
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
   object-fit: contain;
   user-select: none;
   -webkit-user-drag: none;
 }
 
 .gallery-viewer-figure figcaption {
-  align-self: end;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.82rem;
   letter-spacing: 0.08em;
@@ -2297,14 +2310,8 @@ body.gallery-viewer-open {
   .gallery-viewer-figure {
     grid-column: 1 / -1;
     grid-row: 1;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
     padding-top: 48px;
-  }
-
-  .gallery-viewer-figure img {
-    max-height: calc(100% - 28px);
+    box-sizing: border-box;
   }
 
   .gallery-viewer-control {

@@ -462,6 +462,8 @@
         if (!sourceImage || !viewerImage) return;
         viewerImage.src = sourceImage.currentSrc || sourceImage.src;
         viewerImage.alt = sourceImage.alt;
+        viewerImage.width = sourceImage.naturalWidth || sourceImage.width;
+        viewerImage.height = sourceImage.naturalHeight || sourceImage.height;
         if (viewerCount) viewerCount.textContent = `${viewerIndex + 1} / ${slides.length}`;
       }
 
