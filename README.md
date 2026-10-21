@@ -1,24 +1,23 @@
 # calebstammen.com (Portfolio)
 
-Static personal portfolio for `calebstammen.com`, focused on Caleb Stammen's software engineering, AI systems,
-automation, internal tools, cybersecurity, product ownership, and Stammen Technology work.
+Static personal portfolio for `calebstammen.com`, focused on Caleb Stammen's software engineering, applied AI,
+knowledge management, cybersecurity, career, and independent work through Stammen Technology.
 
 **Highlights**
-- Product-led homepage with Suitflow, Stammen Technology, operating strengths, experience, and email contact.
-- Product/profile presentation for Suitflow, Atlas, Stammen Technology, internal AI work, infrastructure, and security
-  work.
-- Sticky nav with active-section highlighting and skip-link accessibility.
+- Personal introduction and specific professional focus areas.
+- Independent business and product sections for Stammen Technology and Suitflow, described as business entities.
+- Streamlined experience and education history, early coding background, and personal interests photo gallery.
+- Sticky responsive navigation and a skip link for keyboard accessibility.
 - Scroll-reveal animations with `prefers-reduced-motion` support.
 - Email copy buttons with toast feedback.
 - No framework build step: plain HTML, CSS, JS, and a small local gallery-manifest sync script.
 
-**Brand palette**
-- Background: `#efe6d6`
-- Paper: `#fbf6ea`
-- Ink: `#243232`
-- Accent: `#1f7456`
-- Muted line: `#d6c8ad`
-- Highlight: `#d8e4dc`
+**Homepage palette**
+- Deep blue-green: `#153d4b`
+- Warm off-white: `#f9f8f2`
+- Pale green: `#f0f4f1`
+- Text: `#20353c`
+- Accent: `#0a7187`
 
 **Design bans**
 - No small initial-logo squares in the header.
